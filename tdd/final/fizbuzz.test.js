@@ -20,4 +20,9 @@ test("should return 'Fizz' when passed multiple of 3", () => {
        checkFizzBuzz(15,'Fizz');
 });
 
+test("should return 'Buzz' when passed multiple of 5", () => {
+       checkFizzBuzz(5,'Buzz');
+       checkFizzBuzz(25,'Buzz');
+});
+
 
