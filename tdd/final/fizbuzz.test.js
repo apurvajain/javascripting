@@ -14,3 +14,10 @@ test("should return '2' when passed 2", () => {
        checkFizzBuzz(2,'2');
 });
 
+
+test("should return 'Fizz' when passed multiple of 3", () => {
+       checkFizzBuzz(3,'Fizz');
+       checkFizzBuzz(15,'Fizz');
+});
+
+
