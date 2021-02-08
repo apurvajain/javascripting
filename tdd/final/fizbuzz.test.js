@@ -17,12 +17,17 @@ test("should return '2' when passed 2", () => {
 
 test("should return 'Fizz' when passed multiple of 3", () => {
        checkFizzBuzz(3,'Fizz');
-       checkFizzBuzz(15,'Fizz');
+       checkFizzBuzz(9,'Fizz');
 });
 
 test("should return 'Buzz' when passed multiple of 5", () => {
        checkFizzBuzz(5,'Buzz');
        checkFizzBuzz(25,'Buzz');
+});
+
+test("should return 'FizzBuzz' when passed multiple of 3 and 5", () => {
+       checkFizzBuzz(15,'FizzBuzz');
+       checkFizzBuzz(30,'FizzBuzz');
 });
 
 
