@@ -1,14 +1,15 @@
 function fizzbuzz(value){
+var string = ""
 if(value % 3 === 0){
-    if(value % 5 === 0){
-        return "FizzBuzz"
-    }
-    return "Fizz"
+    string += "Fizz"
 }
-else if(value % 5 === 0){
-    return "Buzz"
+if(value % 5 === 0){
+    string += "Buzz"
 }
-return value.toString()
+if(value % 3 !== 0 && value % 5 !== 0) {
+    string += value
+}
+return string
 }
 
 module.exports = fizzbuzz;
