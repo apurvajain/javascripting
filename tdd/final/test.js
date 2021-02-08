@@ -11,3 +11,7 @@ test('Get "Fizz" when I pass in multiple of 3 ', () => {
 test('Get "Buzz" when I pass in multiple of 5', () => {
   expect(fizzbuzz(5)).toBe("Buzz");
 });
+
+test('Get FizzBuzz" when I pass in 15, a multiple of 3 and 5', () => {
+  expect(fizzbuzz(15)).toBe("FizzBuzz");
+});
