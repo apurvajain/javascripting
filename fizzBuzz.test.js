@@ -13,3 +13,7 @@ test('should return "Fizz" when passed 3', ()=>{
     const result= fizzbuz(3);
     expect(result).toBe('Fizz');
 })
+test('should return "Buzz" when passed 5', ()=>{
+    const result= fizzbuz(5);
+    expect(result).toBe('Buzz');
+})
