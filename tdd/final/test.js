@@ -1,5 +1,5 @@
 const fizzbuzz = require('./fizzbuzz');
 
-test('Should call fizzbuzz function and Can call fizzbuzz ', () => {
-  expect(fizzbuzz()).toBe();
+test('Get "1", when I pass in 1', () => {
+  expect(fizzbuzz(1)).toBe("1");
 });
