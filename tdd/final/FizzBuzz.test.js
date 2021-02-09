@@ -14,3 +14,8 @@ test('Get "Fizz", when pass in multiple of 3',()=>{
     const received=fizzBuzz(6);
     expect(received).toBe("Fizz");
 })
+
+test('Get "Buzz", when pass in multiple of 5',()=>{
+    const received=fizzBuzz(5);
+    expect(received).toBe("Buzz");
+})
