@@ -1,4 +1,4 @@
-function fizzBuzz(){
-    return("1");
+function fizzBuzz(param){
+    return param.toString();
 }
 module.exports= fizzBuzz;
