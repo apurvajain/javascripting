@@ -1,0 +1,22 @@
+{
+  "name": "tdd",
+  "version": "1.0.0",
+  "description": "Test-driven development (TDD) is an evolutionary approach to development where you write a test before you write just enough production code to fulfill that test and refactoring.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TechUniversity-2021/test-driven-development.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TechUniversity-2021/test-driven-development/issues"
+  },
+  "homepage": "https://github.com/TechUniversity-2021/test-driven-development#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
