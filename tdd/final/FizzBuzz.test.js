@@ -9,3 +9,8 @@ test('Get "2", when pass in 2',()=>{
     const received=fizzBuzz(2);
     expect(received).toBe("2");
 })
+
+test('Get "Fizz", when pass in multiple of 3',()=>{
+    const received=fizzBuzz(6);
+    expect(received).toBe("Fizz");
+})
