@@ -4,13 +4,13 @@ function recMap(array,func,newArray){
     }
    
     newArray.push(func(array[0]));
-    recFilter(array.slice(1),func,newArray);
+    recMap(array.slice(1),func,newArray);
     return newArray;
 }
 
 const array=[1,2,3,4,5,6];
 
-const squaredArray=recFilter(array,function(value){
+const squaredArray=recMap(array,function(value){
     return value*value;
 },[])
 
