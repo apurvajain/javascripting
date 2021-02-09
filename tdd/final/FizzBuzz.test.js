@@ -20,3 +20,8 @@ test('should return "Buzz" when multiple of 5 is passed', ()=>{
     const result= fizzBuzz(5)
     expect(result).toBe("Buzz");
 })
+
+test('should return "FizzBuzz" when multiple of 3 and 5 is passed', ()=>{
+    const result= fizzBuzz(15)
+    expect(result).toBe("FizzBuzz");
+})
