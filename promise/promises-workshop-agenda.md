@@ -21,7 +21,7 @@
 
 
 # Exercises
-###Day1
+### Day1
 1. Promise It Won’t Hurt till value and promises
 
 ### Day2
