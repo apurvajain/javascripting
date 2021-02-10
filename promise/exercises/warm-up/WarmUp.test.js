@@ -6,7 +6,7 @@ test("Print TIMED OUT! after 3ms", (done) => {
     setTimeout(()=>{
         expect(spyOnConsole).toHaveBeenCalledWith('TIMED OUT!');
         done(); //necessary to tell jest to wait for async functions
-    },300)
+    },3000)
     
 });
 
