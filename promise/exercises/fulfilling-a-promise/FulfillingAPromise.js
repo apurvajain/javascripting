@@ -1,4 +1,3 @@
-var promise;
 var promise = new Promise(function (fulfill, reject) {
   setTimeout(function () {
     fulfill("FULFILLED!");
