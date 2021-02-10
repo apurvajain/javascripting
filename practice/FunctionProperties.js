@@ -23,3 +23,22 @@ console.log(square(5));
 const foo = square;
 // prints 36
 console.log(foo(6));
+
+//passing them as parameters
+function formalGreeting() {
+    console.log("How are you?");
+  }
+  function casualGreeting() {
+    console.log("What's up?");
+  }
+  function greet(type, greetFormal, greetCasual) {
+    if(type === 'formal') {
+      greetFormal();
+    } else if(type === 'casual') {
+      greetCasual();
+    }
+  }
+
+// prints 'What's up?'
+greet('casual', formalGreeting, casualGreeting);
+
