@@ -10,15 +10,13 @@
 8. Introduce node-fetch
 8. Partial cover rejecting promises
 9. asynchronous behavior in BE
-
+10. Promise lifecyle
 
 ###Day2
-8. Promise lifecyle
-9. Handling rejected promises
-10. Throw error
-11. Create your own promise
-12. Consuming promise with Async await and use try catch
-
+1. Handling rejected promises
+2. Throw error
+3. Create your own promise
+4. Consuming promise with Async await and use try catch
 
 #Exercises
 ###Day1
