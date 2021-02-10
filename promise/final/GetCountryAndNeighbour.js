@@ -1,6 +1,6 @@
 const https=require('https');
 
-function getCountryData(country){
+function getCountryAndNeighbourData(country){
     https.get(`https://restcountries.eu/rest/v2/name/${country}`,function (response){
         let data="";
         response.on("data",function(chunk){
@@ -31,4 +31,4 @@ function getCountryData(country){
     })
 }
 
-getCountryData('germany');
+getCountryAndNeighbourData('germany');

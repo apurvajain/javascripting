@@ -2,7 +2,7 @@ const https=require('https');
 
 
 function httpRequest(url){
-    return new Promise(function (resolve,reject){
+    return new Promise(function (resolve,reject){ //this function with arguments resolve and reject is also a callback function
 
         https.get(url,function(response){
 
@@ -32,7 +32,7 @@ function getCountryAndNeighbourData(country){
         if(!neighbour){
             return;
         }
-        return  httpRequest(`https://restcountries.eu/rest/v2/name/${neighbour}`);
+        return  httpRequest(`https://restcountries.eu/rest/v2/name/${neighbour}`); //returning a promise therefore we have to use another then to catch that promise
     })
     .then(function(neighbourData){
         console.log(neighbourData);
