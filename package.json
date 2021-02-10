@@ -1,1 +1,22 @@
-{}
+{
+  "name": "javascripting",
+  "description": "Learn JavaScript by adventuring around in the terminal.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TechUniversity-2021/javascripting.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TechUniversity-2021/javascripting/issues"
+  },
+  "homepage": "https://github.com/TechUniversity-2021/javascripting#readme"
+}
