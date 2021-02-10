@@ -44,7 +44,7 @@ const updatedProfessionals = professionals.forEach(function(professional) {
 console.log(temps.slice(1,3));
 console.log(temps.slice(-1));
 
-// HOC implementation
+// HOF implementation
 const strArray = ['JavaScript', 'Python', 'PHP', 'Java', 'C'];
 function mapForEach(strArray, fn) {
     var strLength = [];
