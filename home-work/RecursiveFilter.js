@@ -5,8 +5,8 @@ function filter(arr,fn,newArray){
     if(fn(arr[0])) {
         newArray.push(arr[0]);
     }
-
-    return filter(arr.slice(1),fn,newArray);
+    arr.shift()
+    return filter(arr,fn,newArray);
    
 }
 
