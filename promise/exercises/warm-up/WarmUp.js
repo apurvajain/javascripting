@@ -1,5 +1,8 @@
-setTimeout(()=>{
+const timer=(message)=>{
+    setTimeout(()=>{
+        console.log(message);
+    })
+}
 
-})
 
-module.exports=setTimeout;
+module.exports=timer;
