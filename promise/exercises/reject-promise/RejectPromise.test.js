@@ -5,7 +5,6 @@ const {
 } = require('./RejectPromise');
 
 test("promise should reject with a Error object 'Error('REJECTED!')' ", () => {
-    console.log(promise.resolve);
     expect(promise).rejects.toMatchObject(Error('REJECTED!'));
 });
 
