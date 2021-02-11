@@ -35,8 +35,4 @@
      └ other files
  ├ promise  
  ├ tdd
-   
-
-
-
 ```
