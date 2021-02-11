@@ -7,7 +7,7 @@ test("Should prepend 'DR. ' to first argument and return result", () => {
 })
 
 test("Promise should resolve with value 'MANHATTAN'", () => {
-    expect(promise).resolves.toBe('MANHATTN');
+    expect(promise).resolves.toBe('MANHATTAN');
 })
 
 test("Should print 'DR. MANHATTAN' to the console", () => {
