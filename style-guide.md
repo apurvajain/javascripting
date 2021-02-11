@@ -1,7 +1,14 @@
 ## Style Guide
-naming files: PascalCase 
+#### Please follow the following naming conventions
 
-naming folders: kebab-case (all lowercase letters) 
 
-naming variables: camelCase
+1. **filenames**: PascalCase
+
+2. **folders**: kebab-case (all lowercase letters) 
+
+3. **variables**: camelCase
+
+4. **functions**: camelCase
+
+5. **classes**: camelCase
 
