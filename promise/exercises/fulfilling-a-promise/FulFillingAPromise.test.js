@@ -1,4 +1,4 @@
-const { promise } = require("./FulfillingAPromise");
+const promise = require("./FulfillingAPromise");
 
 test("promise should resolve with a value FULFILLED! after 300ms", () => {
   expect(promise).resolves.toEqual("FULFILLED!");
