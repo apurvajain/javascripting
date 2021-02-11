@@ -5,12 +5,12 @@ const warmUp = require("./WarmUp");
 
 //jest doesnt inheretently handle asynchronous behaviour, wont
 //wait for expect to run. hence need done, jest will wait till done
-test("should print TIMED OUT! after 300ms", (done) => {
+test("should print TIMED OUT! after 300ms", () => {
   const spy = jest.spyOn(console, "log");  
   warmUp();
   setTimeout(() => {
     expect(spy).toHaveBeenCalledWith("TIMED OUT!");
     //expect().toNotHaveBeenCalled
-    done(); 
-  }, 300);
+    //done(); 
+  }, 400);
 }); 
