@@ -1,14 +1,42 @@
-## Style Guide
-#### Please follow the following naming conventions
+# Style Guide
+### **Naming Conventions**
+<br>
+
+- **filenames**: PascalCase
+
+- **folders**: kebab-case (all lowercase letters) 
+
+- **variables**: camelCase
+
+- **functions**: camelCase
+
+- **classes**: PascalCase
+
+- **boolean**: camelCase
+
+<br>
+
+### **Folder Structure**
+<br>
+
+```
+ ┬  
+ ├ Norms.md  
+ ├ README.md  
+ ├ style-guide.md  
+ ├ docs  
+ ├ javascript-session-work  
+    ┬  
+    ├ session-work files
+ ├ javascript-home-work  
+     ┬  
+     ├ scope-chain-closures
+     ├ functional-javascript-workshop
+     └ other files
+ ├ promise  
+ ├ tdd
+   
 
 
-1. **filenames**: PascalCase
 
-2. **folders**: kebab-case (all lowercase letters) 
-
-3. **variables**: camelCase
-
-4. **functions**: camelCase
-
-5. **classes**: camelCase
-
+```
