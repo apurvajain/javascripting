@@ -36,3 +36,25 @@
  ├ promise  
  ├ tdd
 ```
+<br>
+
+### **Coding Style**
+ #### To make your code look cleaner follow some stylistic rules
+- Use semicolons after each statement
+- A space should be given between parameters
+- Curly brace on the same line after a space
+- Avoid nesting code too many levels deep
+- Declare the functions above the code that uses them
+- Split long lines
+
+<br>
+
+![Style Guide](/assets/images/style-guide.png)
+
+<br>
+
+### Automated Linters
+#### ESLint and Prettier are automated linters to make work easier. You may enable them from Extensions
+
+
+
