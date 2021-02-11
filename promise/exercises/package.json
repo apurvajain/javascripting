@@ -15,5 +15,8 @@
     "setupFiles": [
       "./set-up-jest-global.js"
     ]
+  },
+  "dependencies": {
+    "q-io": "^1.13.6"
   }
 }
