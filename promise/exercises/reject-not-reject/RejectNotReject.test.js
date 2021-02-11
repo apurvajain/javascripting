@@ -15,7 +15,7 @@ test("promise should resolve and  print 'I FIRED' to console ", (done) => {
     setTimeout(() => {
       expect(consoleSpy).toHaveBeenCalledWith('I FIRED');
       done();
-    },0);
+    },300);
 });
 
 
