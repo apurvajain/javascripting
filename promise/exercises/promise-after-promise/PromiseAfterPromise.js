@@ -5,14 +5,21 @@ function second(message){
     return Promise.resolve(message);
 }
 
-function execute(){
-    first().then(second).then(onFulfilled);
-}
-
-
 function onFulfilled(response) {
     console.log(response)
 }
+
+function execute(){
+    first()
+    .then((message)=> {
+        return second(message);
+    })
+    .then((message)=>{onFulfilled(message)});
+}
+
+
+
+execute();
 
 module.exports = {
      first,
