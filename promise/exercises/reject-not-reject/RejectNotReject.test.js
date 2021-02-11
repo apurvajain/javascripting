@@ -5,7 +5,6 @@ const {
 } = require('./RejectNotReject');
 
 test("promise should resolve with a value 'I FIRED' ", () => {
-
     expect(promise).resolves.toEqual('I FIRED');
 });
 
@@ -16,7 +15,7 @@ test("promise should resolve and  print 'I FIRED' to console ", (done) => {
     setTimeout(() => {
       expect(consoleSpy).toHaveBeenCalledWith('I FIRED');
       done();
-    },300);
+    },0);
 });
 
 
