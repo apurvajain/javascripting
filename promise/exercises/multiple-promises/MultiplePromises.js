@@ -5,7 +5,7 @@ const all=(promise1,promise2)=>{
 
         //console.log("Hello"+promise1);
         promise1.then(value=>{
-            valueArray.push(value);
+            valueArray[0]=value;
             counter++;
             if(counter===2){
                 //console.log('HI!')
@@ -13,7 +13,7 @@ const all=(promise1,promise2)=>{
             }
         });
         promise2.then(value=>{
-            valueArray.push(value);
+            valueArray[1]=value;
             counter++;
             if(counter===2){
                 //console.log('HI!')
