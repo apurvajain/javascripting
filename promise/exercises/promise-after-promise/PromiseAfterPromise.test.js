@@ -1,6 +1,4 @@
 const {
-    first,
-    second,
     execute,
     onFulfilled
 } = require('./PromiseAfterPromise');
