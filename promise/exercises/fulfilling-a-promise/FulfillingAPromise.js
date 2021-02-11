@@ -9,4 +9,4 @@ var fulfillAPromise = function () {
   });
 };
 fulfillAPromise();
-module.exports = { fulfillAPromise, promise };
+module.exports = promise;
