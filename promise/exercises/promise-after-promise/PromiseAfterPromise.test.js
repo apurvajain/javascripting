@@ -1,6 +1,4 @@
-const {first,
-    second,
-executePromise}=require('./PromiseAfterPromise');
+const {executePromise}=require('./PromiseAfterPromise');
 
 test("Should log 'RESOLVED FIRST' to the console",(done)=>{
     const consoleSpy = jest.spyOn(console, "log");
