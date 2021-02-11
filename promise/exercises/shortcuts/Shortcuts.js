@@ -1,7 +1,10 @@
-var promise = new Promise(function (fulfill, reject) {});
-promise = Promise.resolve("I AM RESPONSE");
-promise = Promise.reject("I AM REJECTED");
-promise.catch(function (err) {
-  console.log(err);
-});
-module.exports = promise;
+const promiseResolved = Promise.resolve("RESOLVED!");
+const promiseRejected = Promise.reject(new Error("REJECTED!"));
+
+const executePromise = () => {
+  promiseRejected.catch(function (error) {
+    console.log(error.message);
+  });
+};
+executePromise();
+module.exports = promiseResolved;

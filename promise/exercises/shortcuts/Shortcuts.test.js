@@ -1,11 +1,12 @@
-const promise = require("./Shortcuts");
+const promiseResolved = require("./Shortcuts");
 
-test("promise should resolve with a value I AM RESPONSE", () => {
-  expect(promise).resolves.toEqual("I AM RESPONSE");
+test("promise should respond with a value RESOLVED! after 300ms", () => {
+  expect(promiseResolved).resolves.toBe("RESOLVED!");
 });
-test("promise resolved value I AM IN RESPONSE should be printed to console", () => {
+
+test("promise reject value REJECTED! should be printed to console", () => {
   const consoleSpy = jest.spyOn(console, "log");
   setTimeout(() => {
-    expect(consoleSpy).toHaveBeenCalledWith("I AM RESPONSE");
-  }, 0);
+    expect(consoleSpy).toHaveBeenCalledWith("REJECTED!");
+  }, 300);
 });
