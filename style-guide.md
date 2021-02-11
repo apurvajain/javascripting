@@ -49,7 +49,7 @@
 
 <br>
 
-![Style Guide](/assets/images/style-guide.png)
+[<img src="assets/images/style-guide.png" width="500"/>](assets/images/style-guide.png)
 
 <br>
 
