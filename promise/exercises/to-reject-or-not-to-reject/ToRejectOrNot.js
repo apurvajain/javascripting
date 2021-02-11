@@ -1,20 +1,19 @@
 var promise = new Promise((resolve, reject) => {
   resolve("I FIRED");
-  const errorObject = {
-    message: "I DID NOT FIRE",
-  };
-  reject(errorObject);
+  reject(Error('I DID NOT FIRE'));
 });
 
-function onReject(error) {
+function onRejected(error) {
   console.log(error.message);
 }
 
 function executePromise() {
   promise.then((message) => {
     console.log(message);
-  }, onReject);
+  }, onRejected);
 }
+
+executePromise();
 
 module.exports = {
   promise,
