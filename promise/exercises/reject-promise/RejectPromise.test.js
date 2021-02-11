@@ -5,7 +5,7 @@ const {
 } = require('./RejectPromise');
 
 test("promise should reject with a Error object 'Error('REJECTED!')' ", () => {
-    expect(promise).rejects.toMatchObject(Error('REJECTED!'));
+    expect(promise).rejects.toEqual(Error('REJECTED!'));
 });
 
 test("promise onReject should print 'REJECTED!' to console after 300ms", (done) => {
