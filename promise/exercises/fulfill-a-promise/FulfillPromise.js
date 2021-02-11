@@ -10,5 +10,4 @@ function usePromise() {
    })
 }
 
-
 module.exports = {promise , usePromise}

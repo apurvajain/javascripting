@@ -16,7 +16,7 @@ const {
 
 // const usePromise = require("./promise");
 
-// test("should print 'Timed out' after 300ms", (done) => {
+// test("should print 'FULLFILLED! after 300ms", (done) => {
 //     const consoleSpy = jest.spyOn(console, 'log')
 //     usePromise();
 //     setTimeout(() => {
