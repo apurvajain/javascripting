@@ -1,11 +1,16 @@
-const fulfillPromise = require("./fulfill");
-const fulfill = require("./fulfill");
+const { promise, usePromise } = require("./Fulfill");
 
-test("should print 'FULFILLED!' after 300ms", (done) => {
+test("promise should resolve with a value FULFILLED! after 300ms", () => {
+  expect(promise).resolves.toEqual("FULFILLED!");
+});
+
+test("promise resolved value (FULFILLED!) should be printed to console", (done) => {
   const consoleSpy = jest.spyOn(console, "log");
-  fulfill();
+  usePromise();
   setTimeout(() => {
     expect(consoleSpy).toHaveBeenCalledWith("FULFILLED!");
     done();
   }, 300);
 });
+
+
