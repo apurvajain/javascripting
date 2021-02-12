@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-## Style Guide
-
-naming files: PascalCase
-naming folders: kebab-case (all lowercase letters)
-naming variables: camelCase
-=======
 # Style Guide
 ### **Naming Conventions**
 <br>
@@ -65,4 +58,3 @@ naming variables: camelCase
 
 
 
->>>>>>> f985dbaf1083b80d7aebd3e877efeaecb95cfd74
