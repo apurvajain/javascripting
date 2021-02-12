@@ -7,7 +7,6 @@ function parsedPromise(json_data) {
            reject(error.message)
        }
     })
- 
 }
 
 parsedPromise(process.argv[2]).then(console.log).catch(console.log)
