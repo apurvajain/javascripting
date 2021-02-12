@@ -1,4 +1,4 @@
-const { parsePromised, executePromise } = require("./ThrowAnError");
+const { parsePromised, executePromise } = require('./ThrowAnError');
 
 test('Promise should be rejected to "ERROR"', () => {
   expect(parsePromised).rejects.toBe(
@@ -10,7 +10,9 @@ test("Should log 'Unexpected token u in JSON at position 0' on the console", (do
   const consoleSpy = jest.spyOn(console, "log");
   executePromise();
   setTimeout(() => {
-    expect(consoleSpy).toHaveBeenCalledWith("Unexpected token u in JSON at position 0");
+    expect(consoleSpy).toHaveBeenCalledWith(
+      "Unexpected token u in JSON at position 0"
+    );
     done();
   }, 300);
 });
