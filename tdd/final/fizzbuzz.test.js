@@ -18,5 +18,8 @@ test('should return "Fizz" when passed multiple of 3', () => {
     checkFizzbuzz(3,"Fizz");
 })
 
+test('should return "Buzz" when passed multiple of 5', () => {
+    checkFizzbuzz(5,"Buzz");
+})
 
 
