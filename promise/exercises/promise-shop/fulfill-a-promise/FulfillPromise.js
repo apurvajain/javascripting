@@ -1,15 +1,15 @@
-const promise=new Promise(function (fulfill, reject) {
-    setTimeout(()=>{
-        fulfill("FULFILLED!")
-    },300)
+
+const promise = new Promise((fulFill, reject) => {
+    setTimeout(() => {
+        fulFill('FULFILLED!')
+    }, 300)
 })
 
-var usePromise= function(){
+var fulfillPromise=()=>{
     promise.then(console.log)
 }
-//promise.then(console.log)
-usePromise();
-module.exports={promise,usePromise}
 
+fulfillPromise()
 
+module.exports={promise,fulfillPromise}
 
