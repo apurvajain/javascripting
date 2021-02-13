@@ -7,8 +7,8 @@ function reduceWithRecursion(arr, f, accumulator) {
    
      accumulator = f(accumulator, arr[0]);
    
-  
-  return reduceWithRecursion(arr.slice(1), f, accumulator);
+  arr.shift()
+  return reduceWithRecursion(arr, f, accumulator);
  
 }
 
