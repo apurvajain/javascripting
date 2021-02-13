@@ -1,4 +1,5 @@
 function fizzbuz(){
+    return "1";
     
 }
 
