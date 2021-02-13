@@ -1,5 +1,5 @@
-function fizzbuz(){
-    return "1";
+function fizzbuz(val){
+    return val.toString();
     
 }
 
