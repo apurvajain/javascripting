@@ -1,13 +1,12 @@
-const WarmUp = require('./WarmUp.js')
+const warmUp = require("./WarmUp")
+const WarmUp=require("./WarmUp")
 
-test("should return 'TIMED OUT!' after 300ms",(done)=> {
-  
+test("should return 'TIMED OUT!' after 300ms",(done)=>{
     const spyConsole=jest.spyOn(console,'log')
-    WarmUp()
+    warmUp()
     setTimeout(()=>{
-        expect(spyConsole).toHaveBeenCalledWith('TIMED OUT!')
+        expect(spyConsole).toHaveBeenCalledWith("TIMED OUT!")
         done()
-    },300);
-    
-
-});
+    },300)
+   
+})

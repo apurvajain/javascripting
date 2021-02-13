@@ -1,5 +1,6 @@
-function WarmUp()
-{
-setTimeout(()=>{console.log('TIMED OUT!')},300)
+function warmUp(){
+    setTimeout(()=>console.log("TIMED OUT!"),300)
 }
-module.exports=WarmUp
+warmUp()
+
+module.exports=warmUp
