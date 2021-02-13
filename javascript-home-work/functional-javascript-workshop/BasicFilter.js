@@ -1,9 +1,9 @@
 
 function getShortMessages(messages) {
 
-    return messages.filter(function(obj){
-        return obj.message.length<50;
-   })
+   const array=messages.map(obj=>obj.message)
+
+   return array.filter(message=>message.length<50)
         
 }
 
