@@ -1,29 +1,19 @@
 let arr = [1, 2, 3, 4, 5];
  
-function sum(i, j) {
-  return i + j;
-}
-let flag = 0;
-let accumulator = 0;
-function reduceWithRecursion(arr, f) {
 
-  if (arr.length === 0) return false;
+function reduceWithRecursion(arr, f, accumulator) {
 
-  if(flag ===  0) {
-    accumulator += f(arr[0], arr[1]);
-    arr.shift();
-    arr.shift(); 
-    flag = 1;
-  } else if(arr.length > 1){
-    accumulator = f(accumulator, arr[0]);
-    arr.shift();
-  } else {
-    accumulator = f(accumulator, arr[0]);
-    arr.shift();
-  }
+  if (arr.length === 0) return accumulator;
+   
+     accumulator = f(accumulator, arr[0]);
+   
   
-  reduceWithRecursion(arr, f);
-  return accumulator;
+  return reduceWithRecursion(arr.slice(1), f, accumulator);
+ 
 }
 
-console.log(reduceWithRecursion(arr, sum));
+function accumulatorHelper(a, b) {
+  return a+b
+}
+
+console.log(reduceWithRecursion(arr, accumulatorHelper, 0)); 
