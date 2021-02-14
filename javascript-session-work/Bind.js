@@ -34,5 +34,6 @@ var pokemonName = function(snack, hobby) {
 var logPokemon = pokemonName.bind(pokemon); // creates new object and binds pokemon. 'this' of pokemon === pokemon now
 //returns a func which has provided context of this object. so to call just provide added args
 //called func w one arg. returned function(snack, hobby), with 2 args
+//in case of call would have more args, pokemonName.call(pokemon, 'sushi', 'art')
 
 logPokemon('sushi', 'algorithms'); // Pika Chu  loves sushi and algorithms
