@@ -7,13 +7,18 @@
 // // prints [ 2, 4, 6 ]
 // console.log(arr2);
 
+//map() method accepts 3 arguments: element, index, and array
+
 const arr1= [1,2,3];
 const arr2=arr1.map(function(item)
 {
     return item*2;
 })
-
 console.log(arr2);
+
+const arr=[1,2,3];
+const array=arr.map(item => item*2);
+console.log(array);
 
 //exc
 const birthYear = [1975, 1997, 2002, 1995, 1985]
