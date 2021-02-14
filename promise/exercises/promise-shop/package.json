@@ -1,0 +1,19 @@
+{
+  "name": "promise-shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "set-up-jest-global.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "jest": {
+    "setupFiles": [
+      "./set-up-jest-global.js"
+    ]
+  }
+}
