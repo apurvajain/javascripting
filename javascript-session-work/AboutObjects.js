@@ -37,6 +37,15 @@ var person = {
   console.log(Object.keys(person));
   console.log(Object.values(person));
 
+  const carList=[{name: "xyz", color: "red"}, {name: "abc", color: "blue"}]
+  console.log(carList)
+  
+  for(car in carList)
+  {
+      //console.log(car.name)
+      //console.log(car)
+      console.log(carList[car].color)
+  }
 
 
 
