@@ -1,4 +1,6 @@
-const persons = [
+/*The callback function passed to the filter() method accepts 3 arguments: element, index, and array.
+*/
+    const persons = [
     { name: 'Peter', age: 16 },
     { name: 'Mark', age: 18 },
     { name: 'John', age: 27 },
@@ -23,7 +25,10 @@ const persons = [
         return true;
     })
 
+    const fullAge2=persons.filter(person=> person.age>=18);
+
     console.log(fullAge)
+    console.log(fullAge2)
     
 
 // const filteredPersons=persons.filter(function(person){
