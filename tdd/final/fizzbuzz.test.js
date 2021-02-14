@@ -36,3 +36,8 @@ test("should return 'Buzz' when multiple of 5", ()=>{
 
     checkFizzBuzz(5, "Buzz");
 })  
+
+test("should return 'FizzBuzz' when multiple of 3 and 5", ()=>{
+
+    checkFizzBuzz(15, "FizzBuzz");
+})  
