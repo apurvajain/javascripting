@@ -20,3 +20,6 @@ var exampleThis = function () {
   };
   var obj = new ConstructorThisExample(); // {}
   //owner of func is the obj, object is defined but is empty
+
+  console.log(typeof exampleThis)//function
+  console.log(typeof obj)//object
