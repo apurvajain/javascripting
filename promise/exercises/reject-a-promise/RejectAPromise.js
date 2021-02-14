@@ -1,13 +1,16 @@
-const promise= new Promise((resolve, reject)=>{
-    setTimeout(()=>{
-        reject(new Error('REJECTED!'))
-    }, 300)
+const promise = new Promise(function(resolve, reject){
+    setTimeout(() => {
+      reject(("REJECTED!"));
+    },300)
 })
 
-function onReject(error) {
-    console.log(error.message);
+function onReject(err)
+{
+    console.log(err)
+}
+function rejectPromise(){
+    promise.then(null,onReject)
 }
 
-promise.then(null, onReject)
-
-module.exports={onReject, promise}
+rejectPromise()
+module.exports= {promise, onReject}
