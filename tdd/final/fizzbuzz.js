@@ -1,4 +1,5 @@
 function fizzbuzz() {
+    return "1";
 
 }
 module.exports =fizzbuzz
@@ -9,4 +10,4 @@ module.exports =fizzbuzz
     fizzbuzz2
 }*/
 //export multiple 
-//module refers to current module of js file
+//module refers to current module of js file 
