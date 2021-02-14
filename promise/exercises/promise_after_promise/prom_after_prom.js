@@ -1,3 +1,5 @@
+
+
 var f=first();
 var s=f.then(val,()=>{
     return f.then(res);
