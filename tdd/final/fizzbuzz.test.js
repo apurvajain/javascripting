@@ -40,4 +40,6 @@ test("should return 'Buzz' when multiple of 5", ()=>{
 test("should return 'FizzBuzz' when multiple of 3 and 5", ()=>{
 
     checkFizzBuzz(15, "FizzBuzz");
+    checkFizzBuzz(30, "FizzBuzz");
+    checkFizzBuzz(45, "FizzBuzz");
 })  
