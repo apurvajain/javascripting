@@ -3,6 +3,11 @@ var LocalStorage = require("node-localstorage").LocalStorage,
   localStorage = new LocalStorage("./scratch");
 
 var users = [];
+function compare(a, b) {
+  if (a.wealth < b.wealth) return 1;
+  if (a.wealth > b.wealth) return -1;
+  return 0;
+}
 async function fetchUsers() {
   var fetchUsers = JSON.parse(localStorage.getItem("users"));
   if (!fetchUsers) fetchUsers = [];
@@ -23,6 +28,7 @@ async function fetchUsers() {
         console.log("<---User details: START--->");
         console.log(JSON.parse(localStorage.getItem("users")));
         console.log("<---User details: END--->");
+        console.log();
       });
   } catch (err) {
     console.log(err);
@@ -44,6 +50,7 @@ function doubleWealth() {
   console.log("<---User details: START--->");
   console.log(JSON.parse(localStorage.getItem("users")));
   console.log("<---User details: END--->");
+  console.log();
 }
 
 function getMillionaires() {
@@ -56,6 +63,7 @@ function getMillionaires() {
     return users.wealth > 1000000;
   });
   console.log(millionaires);
+  console.log();
 }
 
 function sortByRichest() {
@@ -64,8 +72,29 @@ function sortByRichest() {
     console.log("   You dont have any users");
     return;
   }
-  const sortedUsers = fetchUsers.sort().reverse();
+  const sortedUsers = fetchUsers.sort(compare);
   console.log(sortedUsers);
+  console.log();
 }
 
-module.exports = { fetchUsers, doubleWealth, getMillionaires, sortByRichest };
+function getTotalWealth() {
+  var fetchUsers = JSON.parse(localStorage.getItem("users"));
+  if (!fetchUsers) {
+    console.log(" You dont have any users");
+    return;
+  }
+  var total = 0;
+  for (var i in fetchUsers) {
+    total += fetchUsers[i].wealth;
+  }
+  console.log("Total wealth of all the users: ", total);
+  console.log();
+}
+
+module.exports = {
+  fetchUsers,
+  doubleWealth,
+  getMillionaires,
+  sortByRichest,
+  getTotalWealth,
+};
