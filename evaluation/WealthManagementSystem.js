@@ -35,9 +35,9 @@ function getUser(url, first) {
       allUsers.push(userDetails);
     //   console.log("user:" + allUsers[0].fullname)
       setData(allUsers)
-      showAllUsers()
     //   console.log(allUsers)
-     })
+     }
+     )
     
     
      
@@ -80,7 +80,7 @@ function showAllUsers() {
 
 function addUser(url, first) {
     getUser(url, first);
-    showAllUsers()
+
 }
 
 function doubleMoney() {
