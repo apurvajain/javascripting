@@ -46,8 +46,16 @@ function doubleWealth() {
   console.log("<---User details: END--->");
 }
 
-const millionaires = users.filter(function (users) {
-  return users.wealth > 100000;
-});
+function getMillionaires() {
+  var fetchUsers = JSON.parse(localStorage.getItem("users"));
+  if (!fetchUsers) {
+    console.log("   You dont have any users");
+    return;
+  }
+  const millionaires = fetchUsers.filter(function (users) {
+    return users.wealth > 1000000;
+  });
+  console.log(millionaires);
+}
 
-module.exports = { fetchUsers, doubleWealth };
+module.exports = { fetchUsers, doubleWealth, getMillionaires };
