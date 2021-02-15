@@ -1,7 +1,5 @@
 echo "Welcome to the user wealth management system portal: "
-echo "<-----------------User details: start--------------------->"
 node -e 'require("./CallAPI").fetchUsers(3)'
-echo "<-----------------User details: end--------------------->"
 option = 0
 while [[ "$option" != "6" ]]
 do

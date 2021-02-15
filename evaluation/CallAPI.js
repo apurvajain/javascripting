@@ -1,11 +1,15 @@
 const fetch = require("node-fetch");
 var LocalStorage = require("node-localstorage").LocalStorage,
-  localStorage = new LocalStorage("./scratch");
+  localStorage = new LocalStorage("./usersBlob");
 
-var users = [];
-async function fetchUsers() {
+var users = []
+async function fetchUsers(numOfUsers) {
+  var users = JSON.parse(localStorage.getItem("users"));
+    if (!users) {
+        users = [];
+    }
   try {
-    fetch("https://randomuser.me/api/?results=3")
+    fetch(`https://randomuser.me/api/?results=${numOfUsers}`)
       .then((response) => response.json())
       .then(function (data) {
         data.results.forEach((item) => {
@@ -54,7 +58,5 @@ function calculateTotalWealth() {
     }
     console.log(totalWealth)
 }
-
-fetchUsers();
 
 module.exports = { fetchUsers, doubleWealth, millionaires, sortByRichest, calculateTotalWealth};
