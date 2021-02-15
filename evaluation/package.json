@@ -1,0 +1,18 @@
+{
+  "name": "evaluation",
+  "version": "1.0.0",
+  "description": "User Wealth Management system",
+  "main": "WealthSystem.sh",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "TechUniversity-2021"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
