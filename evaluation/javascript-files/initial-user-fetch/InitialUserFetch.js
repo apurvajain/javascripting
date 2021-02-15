@@ -13,7 +13,7 @@ else{
 }
 
 function setWealth(user){
-  user[0]["wealth"] = getRandomInt(5000, 100000000);
+  user[0]["wealth"] = getRandomInt(1, 3000000);
 }
 function getRandomInt(min, max) {
   min = Math.ceil(min);
