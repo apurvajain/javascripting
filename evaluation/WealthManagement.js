@@ -21,7 +21,7 @@ function personDetails(user){
 }
 
 
-function getName() {
+const fetchPeople = () => {
   fetch(`https://randomuser.me/api/?results=3`)
     .then(function (response) {
       return response.json(); //returns a promise
@@ -30,9 +30,25 @@ function getName() {
       data.results.forEach((person) => {
         console.log(personDetails(person));
       });
-    });
+    })
+    .then(()=>menu())
+}
+//only after fetch is success call menu
+
+const menu = () => {
+  const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+   
+  readline.question('1. Add user and print new user list\n2. Double money of all users and print updated user list\n3. Show only millionares\n4. Sort by richest\n5. Calculate total wealth of all users and print it\n6. Exit\n', entry => {
+    console.log(entry);
+    readline.close();
+  });
+  
 }
 
-getName();
+fetchPeople();
+//menu()
 
-module.exports = getName;
+module.exports = fetchPeople;
