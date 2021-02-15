@@ -17,7 +17,7 @@ function wealth_management(data) {
       console.log('Name: '+ (Data.results[0].name) +' '+"wealth: "+Math.random()*10000000);
       console.log('Name: '+ (Data.results.name)+' '+"wealth: "+Math.random()*10000000);
       console.log('Name: '+ (Data.results.name) +' '+"wealth: "+Math.random()*10000000);
-      console.log(`<---------User details: END--------->`);
+      console.log('<----------User details : END------->');
 
       
       
@@ -27,10 +27,10 @@ function wealth_management(data) {
     //.then((response) => response.json())
     
 }
-function displaytotal()
-{
-    return 
-}
+
+      
+  
+  
 function optionentry(){
     console.log("Please select option\n");
       console.log("1. Add user and print new user list\n")
@@ -65,7 +65,8 @@ function optionentry(){
                   displaytotal();
                   optionentry();
                   break;
-           case 6: exit     (1);
+           case 6: console.log("Exit"); 
+           exit     (1);
            default: break;
       }              
                   
@@ -79,3 +80,10 @@ function optionentry(){
 
 
 wealth_management("api");
+
+optionentry();
+
+module.exports={
+    wealth_management,
+    optionentry
+}
