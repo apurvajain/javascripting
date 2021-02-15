@@ -14,6 +14,8 @@
 
 echo "User Wealth Management System"
 # node WealthManagementSystem.js
+node -e 'require("./WealthManagementSystem").clearData()'
+node -e 'require("./WealthManagementSystem").fetchUsers("https://randomuser.me/api")'
 node -e 'require("./WealthManagementSystem").showAllUsers()'
 number=1
 startDetails="<--------USER DETAILS START----------->"
@@ -41,7 +43,13 @@ read number
       echo $startDetails
       node -e 'require("./WealthManagementSystem").showAllUsers()'
       echo $endDetails
+   elif [ $number == 3 ]
+   then
+      echo $startDetails
+      node -e 'require("./WealthManagementSystem").showMillionares()'
+      echo $endDetails
    else
+   
       echo EXIT
    fi
 done

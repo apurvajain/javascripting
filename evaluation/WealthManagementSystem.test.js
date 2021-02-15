@@ -1,4 +1,4 @@
-const {fetchUsers, doubleMoney} = require("./WealthManagementSystem");
+const {fetchUsers, doubleMoney, showMillionares} = require("./WealthManagementSystem");
 
 
 test('can call fetchUsers function', () => {
@@ -21,3 +21,12 @@ test("can call fetchUsers function", (done) => {
 test('can call double money function', () => {
     doubleMoney();
 })
+
+test("can show millionare with console log", (done) => {
+    const consoleSpy = jest.spyOn(console, "log")
+    showMillionares()
+    setTimeout(() => {
+        expect(consoleSpy).toHaveBeenCalled();
+        done();
+    }, 3000);    
+});

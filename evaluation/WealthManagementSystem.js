@@ -27,7 +27,7 @@ function fetchUsers(url) {
             eachUserDetails.wealth = wealth;
             userDetails.push(eachUserDetails)
             storeUser(userDetails)
-            console.log("details Length" + userDetails.length)
+            //console.log("details Length" + userDetails.length)
             return eachUserDetails
           })
         .catch((err) => {
@@ -70,7 +70,31 @@ function doubleMoney() {
        })
     localStorage.setItem("users", JSON.stringify(doubledData));
  }
+
+ function showMillionares() {
+    let allData = getAllUsers();
+    let millionare = 0;
+    let millionareUser;
+    allData.forEach((user) => {
+      if(user.wealth > millionare){
+        millionare = user.wealth;
+        millionareUser = user
+      } 
+     })
+    console.log("Millionare user is: ")
+    console.log(millionareUser)
+    console.log("Millionare user end ")
+ }
+
+function clearData() {
+    let allData = getAllUsers()
+    while (allData.length) {
+        allData.pop();
+    }
+    localStorage.setItem("users", JSON.stringify(allData));
+  }
+ 
  
 
 
-module.exports = {fetchUsers, showAllUsers, storeUser, doubleMoney}
+module.exports = {fetchUsers, showAllUsers, storeUser, doubleMoney, showMillionares, clearData}
