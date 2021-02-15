@@ -14,9 +14,8 @@ const fetchData = () => {
       })
       .then((jsonResponse) => {
         users.push(jsonResponse["results"]);
-        
-          localStorage.setItem("users",JSON.stringify(users));
-          console.log(localStorage.getItem("users"));
+            localStorage.setItem("users",JSON.stringify(users));
+          localStorage.getItem("users");
       
       })
       .catch((error) => {
