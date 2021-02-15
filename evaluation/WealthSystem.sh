@@ -11,7 +11,7 @@ echo "\nSelect an option from the given menu:- \n
 do
     read INPUT_NUMBER
     case $INPUT_NUMBER in
-        1) node -e 'require("./Index").AddUser()';;
+        1) node -e 'require("./Index").addUser()';;
         2) node -e 'require("./Index").doubleMoney()';;
         3) node -e 'require("./Index").showMillionares()';;
         4) node -e 'require("./Index").sortByRichest()';;

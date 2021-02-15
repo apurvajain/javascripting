@@ -24,7 +24,7 @@ function fetchAllUsers(){
   });
 }
 
-function AddUser(){
+function addUser(){
   fetchUsers().then(user => {
     var users = JSON.parse(localStorage.getItem('profile'));
     users.push(user);
@@ -100,7 +100,7 @@ function totalWealth(){
 
 
 module.exports = {
-  AddUser,
+  addUser,
   fetchUsers,
   displayAllUsers,
   setMoney,
