@@ -12,8 +12,14 @@ else{
   var users = JSON.parse(retrievedUsers);
 }
 
-
-
+function setWealth(user){
+  user[0]["wealth"] = getRandomInt(5000, 100000000);
+}
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+}
 
 const fetchUsers = (numberOfUsers) => {
   let count = 0;
@@ -23,7 +29,9 @@ const fetchUsers = (numberOfUsers) => {
         return response.json();
       })
       .then((jsonResponse) => {
-        users.push(jsonResponse["results"]);
+        let user=jsonResponse["results"];
+        setWealth(user);
+        users.push(user);
         count++;
         if (count === numberOfUsers) {
           localStorage.setItem("users", JSON.stringify(users));
