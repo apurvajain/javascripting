@@ -41,23 +41,6 @@ read number
       echo $startDetails
       node -e 'require("./WealthManagementSystem").showAllUsers()'
       echo $endDetails
-   elif [ $number == 3 ]
-   then
-      echo $startDetails
-      node -e 'require("./WealthManagementSystem").showMillionares()'
-      echo $endDetails
-
-   elif [ $number == 4 ]
-   then
-      echo $startDetails
-      node -e 'require("./WealthManagementSystem").sortByRiches()'
-      echo $endDetails
-   
-   elif [ $number == 5 ]
-   then
-      echo $startDetails
-      node -e 'require("./WealthManagementSystem").showMillionares()'
-      echo $endDetails
    else
       echo EXIT
    fi

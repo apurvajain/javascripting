@@ -1,4 +1,4 @@
-const {fetchUsers, storeUser} = require("./WealthManagementSystem");
+const {fetchUsers, doubleMoney} = require("./WealthManagementSystem");
 
 
 test('can call fetchUsers function', () => {
@@ -16,3 +16,8 @@ test("can call fetchUsers function", (done) => {
     }, 3000);    
 });
 
+
+
+test('can call double money function', () => {
+    doubleMoney();
+})

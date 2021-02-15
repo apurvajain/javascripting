@@ -61,7 +61,16 @@ function showAllUsers() {
    })
 }
 
+function doubleMoney() {
+    let allData = getAllUsers();
+    let doubledData = allData.map((user) => {
+         return ({
+           fullname : user.fullname,
+           wealth : user.wealth * 2})
+       })
+    localStorage.setItem("users", JSON.stringify(doubledData));
+ }
+ 
 
 
-
-module.exports = {fetchUsers, showAllUsers, storeUser}
+module.exports = {fetchUsers, showAllUsers, storeUser, doubleMoney}
