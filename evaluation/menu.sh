@@ -13,17 +13,17 @@ do
     echo "You entered $option"
     if [ "$option" == "1" ]
     then node -e 'require("./WealthManagementSystem.js").fetchUsers()'
-    fi
-    if [ "$option" == "2" ]
+    
+    elif [ "$option" == "2" ]
     then node -e 'require("./WealthManagementSystem.js").doubleWealth()'
-    fi
-    if [ "$option" == "3" ]
+    
+    elif [ "$option" == "3" ]
     then node -e 'require("./WealthManagementSystem.js").getMillionaires()'
-    fi
-    if [ "$option" == "4" ]
+    
+    elif [ "$option" == "4" ]
     then node -e 'require("./WealthManagementSystem.js").sortByRichest()'
-    fi
-    if [ "$option" == "5" ]
+    
+    elif [ "$option" == "5" ]
     then node -e 'require("./WealthManagementSystem.js").getTotalWealth()'
     else
     echo "Please enter valid option"
