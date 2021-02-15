@@ -4,6 +4,8 @@ var LocalStorage = require("node-localstorage").LocalStorage,
 
 var users = [];
 async function fetchUsers() {
+  var fetchUsers = JSON.parse(localStorage.getItem("users"));
+  if (!fetchUsers) fetchUsers = [];
   try {
     fetch("https://randomuser.me/api/?results=3")
       .then((response) => response.json())
@@ -15,12 +17,11 @@ async function fetchUsers() {
           obj["wealth"] = Math.floor(
             Math.random() * 1000000 + Math.random() * 1000000
           );
-          users.push(obj);
-          localStorage.setItem("users", JSON.stringify(users));
-          console.log(localStorage.getItem("users"));
+          fetchUsers.push(obj);
+          localStorage.setItem("users", JSON.stringify(fetchUsers));
         });
         console.log("<---User details: START--->");
-        console.log(users);
+        console.log(JSON.parse(localStorage.getItem("users")));
         console.log("<---User details: END--->");
       });
   } catch (err) {
@@ -29,16 +30,24 @@ async function fetchUsers() {
 }
 
 function doubleWealth() {
-  users.forEach((item) => {
-    return (item.wealth = item.wealth * 2);
-  });
-  console.log(users);
+  var fetchUsers = JSON.parse(localStorage.getItem("users"));
+  if (!fetchUsers) {
+    console.log("   You dont have any users");
+    return;
+  }
+  for (var i in fetchUsers) {
+    fetchUsers[i].wealth = fetchUsers[i].wealth * 2;
+  }
+  //   var updatedWealth = fetchUsers.map((item) => item.wealth * 2);
+  //   console.log(updatedWealth);
+  localStorage.setItem("users", JSON.stringify(fetchUsers));
+  console.log("<---User details: START--->");
+  console.log(JSON.parse(localStorage.getItem("users")));
+  console.log("<---User details: END--->");
 }
 
 const millionaires = users.filter(function (users) {
   return users.wealth > 100000;
 });
-
-fetchUsers();
 
 module.exports = { fetchUsers, doubleWealth };
