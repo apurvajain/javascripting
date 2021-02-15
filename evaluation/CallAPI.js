@@ -49,7 +49,7 @@ function sortByRichest() {
 function calculateTotalWealth() { 
     users = JSON.parse(localStorage.getItem('users'))
     let totalWealth = 0;
-    for (i = 0; i < users.wealth; i++) { 
+    for (i = 0; i < users.length; i++) { 
         totalWealth += users[i]['wealth']
     }
     console.log(totalWealth)
