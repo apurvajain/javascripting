@@ -5,4 +5,4 @@ const {LocalStorage}= require ('./node_modules/node-localstorage')
 var localStorage = new LocalStorage('./evaluation');
 
 //console.log localStorage item with the key Name
-//console.log(localStorage.getItem('Name'))
+console.log(localStorage.getItem('wealth'))
