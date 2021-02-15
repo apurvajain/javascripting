@@ -18,23 +18,22 @@ function fetchUsers() {
   }
 
 function fetchAllUsers(){
-  for(let i=0;i<3;i++){
-    fetchUsers().then((user)=>{ console.log(user); users.push(user);});
-   
-  }
-  
-  localStorage.setItem('profile', users);
-  
+  Promise.all([fetchUsers(),fetchUsers(),fetchUsers()]).then(users => {
+    localStorage.setItem('profile', JSON.stringify(users));
+    displayAllUsers();
+  });
 }
 
 
 
 function displayAllUsers() {
-  console.log(localStorage.getItem('profile'));
-//   for (var key in localStorage){
-//     console.log(key)
-//  }
-  // console.log(localStorage.getItem('Profile'));
+  var users = JSON.parse(localStorage.getItem('profile'));
+  console.log(`<--------Users : START-------->`);
+  users.forEach(user => {
+    console.log('name ' + user.name + '     '+'money' + user.money);
+  });
+  console.log(`<--------Users : END-------->`);
+
 }
 
 function setMoney(){
