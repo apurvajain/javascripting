@@ -1,5 +1,4 @@
 
-
 node ./getUser/GetUser.js
 
 echo "1. Add user and print new user list
@@ -8,3 +7,6 @@ echo "1. Add user and print new user list
 4. Sort by richest
 5. Calculate total wealth of all users and print it
 6. Exit"
+
+read choice
+
