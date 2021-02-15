@@ -1,5 +1,4 @@
 node -e 'require("./Index").fetchAllUsers()'
-node -e 'require("./Index").displayAllUsers()'
 
 while :
 echo "\nSelect an option from the given menu:- \n
@@ -12,8 +11,7 @@ echo "\nSelect an option from the given menu:- \n
 do
     read INPUT_NUMBER
     case $INPUT_NUMBER in
-        1) node -e 'require("./Index").displayAllUsers()'
-        node -e 'require("./Index").displayAllUsers()';;
+        1) node -e 'require("./Index").AddUser()';;
         6) node -e 'require("./Index").clearLocalStorage()';;
     esac
 done    
