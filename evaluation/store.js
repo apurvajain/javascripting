@@ -6,4 +6,4 @@ var localStorage = new LocalStorage('./evaluation');
 //Setting localStorage Item
 // localStorage.setItem('Name', 'Manish Mandal',) 
 // localStorage.setItem('Name', 'Shreya')
-// localStorage.setItem('Name', 'nalini')  
+localStorage.setItem('wealth', '345678987')  
