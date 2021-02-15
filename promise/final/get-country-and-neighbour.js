@@ -18,7 +18,7 @@ function getCountryAndNeighbour(country) {
         console.log(`<---------${country} country: END--------->`);
 
         // Get neighbour country 2
-        
+
         const [neighbour] = parsedData[0].borders;
         if (!neighbour) return;
 
