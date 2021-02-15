@@ -1,5 +1,9 @@
 const { get } = require("http");
 const https = require("https");
+var LocalStorage = require("node-localstorage").LocalStorage,
+localStorage = new LocalStorage("./scratch");
+
+let arr=[]
 function httpRequest(url) {
     return new Promise(function (resolve, reject) {
       https
@@ -30,9 +34,10 @@ function httpRequest(url) {
             wealth: money
           }
           console.log(fullName);
+          arr.push(fullName)
           return fullName;
                     //console.log(`${title}. ${firstName} ${lastName}`);
       })
-  }
-  getData();
- module.exports= getData;
+  };
+console.log(arr);
+module.exports= getData;
