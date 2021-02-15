@@ -1,7 +1,9 @@
 for i in {1..3};
-    do node -e 'require("./Index").fetchUsers()';
+    do node -e 'require("./Index").fetchUsers()' i ;
 done;
+node -e 'require("./Index").displayAllUsers()'
 
+while :
 echo "\nSelect an option from the given menu:- \n
 1. Add user and print new user list 
 2. Double money of all users and print updated user list
@@ -9,7 +11,6 @@ echo "\nSelect an option from the given menu:- \n
 4. Sort by richest
 5. Calculate total wealth of all users and print it
 6. Exit" ;
-while :
 do
     read INPUT_NUMBER
     case $INPUT_NUMBER in
@@ -19,9 +20,9 @@ do
     esac
 done    
 
-    #   do node -e 'require("./Index").displayAllUsers()';;
-        # 2) do node -e 'require("./Index").clearLocalStorage()';;
-        # 6)  do node -e 'require("./Index").clearLocalStorage()';;
+      do node -e 'require("./Index").displayAllUsers()';;
+        2) do node -e 'require("./Index").clearLocalStorage()';;
+        6)  do node -e 'require("./Index").clearLocalStorage()';;
 
 
 
