@@ -1,3 +1,5 @@
 echo "Welcome to the wealth Management Portal"
 
-node ./javascript-files/initial-user-fetch/InitialUserFetch.js
+
+node -e 'require("./javascript-files/initial-user-fetch/InitialUserFetch")'.fetchUsers()
+node ./javascript-files/initial-user-log/InitialUserLog.js

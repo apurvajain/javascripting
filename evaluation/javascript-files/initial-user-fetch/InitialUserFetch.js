@@ -26,7 +26,7 @@ const fetchUsers = (numberOfUsers) => {
 };
 
 
-fetchUsers(3);
+//fetchUsers(3);
 
 
-module.exports = { fetchUsers, users };
+module.exports = { fetchUsers, users,localStorage };
