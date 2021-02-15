@@ -58,4 +58,14 @@ function getMillionaires() {
   console.log(millionaires);
 }
 
-module.exports = { fetchUsers, doubleWealth, getMillionaires };
+function sortByRichest() {
+  var fetchUsers = JSON.parse(localStorage.getItem("users"));
+  if (!fetchUsers) {
+    console.log("   You dont have any users");
+    return;
+  }
+  const sortedUsers = fetchUsers.sort().reverse();
+  console.log(sortedUsers);
+}
+
+module.exports = { fetchUsers, doubleWealth, getMillionaires, sortByRichest };
