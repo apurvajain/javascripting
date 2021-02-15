@@ -94,7 +94,16 @@ function clearData() {
     localStorage.setItem("users", JSON.stringify(allData));
   }
  
+function sortByRiches() {
+    let allData = getAllUsers();
+    var sortByRiches = allData.slice(0);
+    sortByRiches.sort(function(a,b) {
+      return b.wealth - a.wealth;
+  });
+    console.log(sortByRiches);
+}
+  
  
 
 
-module.exports = {fetchUsers, showAllUsers, storeUser, doubleMoney, showMillionares, clearData}
+module.exports = {fetchUsers, showAllUsers, storeUser, doubleMoney, showMillionares, clearData, sortByRiches}

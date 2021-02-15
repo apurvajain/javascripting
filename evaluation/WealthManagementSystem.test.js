@@ -1,21 +1,9 @@
-const {fetchUsers, doubleMoney, showMillionares} = require("./WealthManagementSystem");
+const {fetchUsers, doubleMoney, showMillionares, sortByRiches} = require("./WealthManagementSystem");
 
 
 test('can call fetchUsers function', () => {
     fetchUsers();
 })
-
-
-
-test("can call fetchUsers function", (done) => {
-    const consoleSpy = jest.spyOn(console, "log")
-    fetchUsers("https://randomuser.me/api");
-    setTimeout(() => {
-        expect(consoleSpy).toHaveBeenCalled();
-        done();
-    }, 3000);    
-});
-
 
 
 test('can call double money function', () => {
@@ -30,3 +18,14 @@ test("can show millionare with console log", (done) => {
         done();
     }, 3000);    
 });
+
+test("can sort users by wealth with console log", (done) => {
+    const consoleSpy = jest.spyOn(console, "log")
+    sortByRiches()
+    setTimeout(() => {
+        expect(consoleSpy).toHaveBeenCalled();
+        done();
+    }, 3000);    
+});
+
+

@@ -48,6 +48,12 @@ read number
       echo $startDetails
       node -e 'require("./WealthManagementSystem").showMillionares()'
       echo $endDetails
+   elif [ $number == 4 ]
+   then
+      echo $startDetails
+      node -e 'require("./WealthManagementSystem").sortByRiches()'
+      echo $endDetails
+
    else
    
       echo EXIT
