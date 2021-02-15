@@ -15,13 +15,10 @@ do
         2) node -e 'require("./Index").doubleMoney()';;
         3) node -e 'require("./Index").showMillionares()';;
         4) node -e 'require("./Index").sortByRichest()';;
+        5) node -e 'require("./Index").totalWealth()';;
         6) node -e 'require("./Index").clearLocalStorage()';;
     esac
 done    
-
-    #   do node -e 'require("./Index").displayAllUsers()';;
-    #     2) do node -e 'require("./Index").clearLocalStorage()';;
-    #     6)  do node -e 'require("./Index").clearLocalStorage()';;
 
 
 

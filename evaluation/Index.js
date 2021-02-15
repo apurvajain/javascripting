@@ -88,6 +88,17 @@ function sortByRichest(){
   console.log(`<--------Users : END-------->`);
 }
 
+
+function totalWealth(){
+  var users = JSON.parse(localStorage.getItem('profile'));
+  let wealth = users.reduce(function (agg,evl){
+      return agg +evl.money;
+  },0);
+    console.log('Total Wealth = ' + wealth);
+}
+
+
+
 module.exports = {
   AddUser,
   fetchUsers,
@@ -97,11 +108,7 @@ module.exports = {
   fetchAllUsers,
   doubleMoney,
   showMillionares,
-  sortByRichest
+  sortByRichest,
+  totalWealth
 }
   
-   // localStorage.setItem('Profile',`${fullname.first}  ${fullname.last}`) ;
-        // console.log(localStorage.getItem('Profile'));
-            // console.log(localStorage.getItem('Name'));
-        // localstorage.clear()
-            // users.push(Math.random());
