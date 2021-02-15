@@ -1,7 +1,8 @@
 const { TestScheduler } = require('jest')
 const {
     wealth_management,
-    optionentry
+    optionentry,
+    total
 }=require('./index')
 
 test ("should print default entries",(done)=>{

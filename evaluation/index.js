@@ -28,8 +28,47 @@ function wealth_management(data) {
     
 }
 
+function doublemoney(data) {
+    fetch(`https://randomuser.me/${data}`)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (Data) {
+
+        
+        for(let i=0;i<arguments.length;i++)
+        {
+            Data.wealth[i]*=2;
+        }
+
+       
+    
+    }
+
+
+    
+}
       
+function  total(data) {
+    fetch(`https://randomuser.me/${data}`)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (Data) {
+
+        var count=0;
+        for(let i=0;i<arguments.length;i++)
+        {
+            count+=Data.wealth[i];
+        }
+
+        console.log("<--------Total wealth:-------->:"+count);
+    
+    }
+
+
   
+}
   
 function optionentry(){
     console.log("Please select option\n");
@@ -49,7 +88,7 @@ function optionentry(){
                   wealth_management(api);
                   optionentry();
                   break;
-           case 2: doublemonet();
+           case 2: doublemonet(api);
                   wealth_management(api);
                   optionentry();
                   break;
@@ -61,8 +100,8 @@ function optionentry(){
                    wealth_management(api);
                    optionentry();
                    break;
-           case 5: total   ();
-                  displaytotal();
+           case 5: total   (api);
+                  
                   optionentry();
                   break;
            case 6: console.log("Exit"); 
@@ -85,5 +124,5 @@ optionentry();
 
 module.exports={
     wealth_management,
-    optionentry
+    optionentry,total
 }
