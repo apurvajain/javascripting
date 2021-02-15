@@ -38,7 +38,23 @@ const millionaires = users.filter(function (users) {
   return users.wealth > 100000;
 });
 
+function sortByRichest() { 
+    users = JSON.parse(localStorage.getItem('users'))
+    users.sort(function (a, b) {
+        return a.wealth.toString().localeCompare(b.wealth.toString());
+    });
+     console.log(users);
+}
+
+function calculateTotalWealth() { 
+    users = JSON.parse(localStorage.getItem('users'))
+    let totalWealth = 0;
+    for (i = 0; i < users.wealth; i++) { 
+        totalWealth += users[i]['wealth']
+    }
+    console.log(totalWealth)
+}
 
 fetchUsers();
 
-module.exports = { fetchUsers, doubleWealth, millionaires};
+module.exports = { fetchUsers, doubleWealth, millionaires, sortByRichest, calculateTotalWealth};

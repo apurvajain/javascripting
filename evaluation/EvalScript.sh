@@ -23,5 +23,12 @@ do
     if [ "$option" == "3" ]
     then node -e 'require("./CallAPI.js").millonaires'
     fi
+    if [ "$option" == "4" ]
+    then node -e 'require("./CallAPI.js").sortByRichest()'
+    fi
+     if [ "$option" == "4" ]
+    then node -e 'require("./CallAPI.js").calculateTotalWealth()'
+    fi
+
 
 done
