@@ -3,4 +3,5 @@ function warmUp() {
     console.log("TIMED OUT!");
   }, 300);
 }
+warmUp();
 module.exports = warmUp;

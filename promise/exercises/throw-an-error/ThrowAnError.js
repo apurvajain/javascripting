@@ -1,19 +1,18 @@
-const promise = require("../fulfilling-a-promise/FulfillingAPromise");
-
-function createPromise(arg) {
-  return new Promise(function (fulfill, reject) {
-    try {
-      fulfill(JSON.parse(arg));
-    } catch (e) {
-      reject(e);
-    }
-  });
+function parsePromised() {
+  try {
+    const data = JSON.parse(process.argv[2]);
+    return Promise.resolve(data);
+  } catch (err) {
+    return Promise.reject(err.message);
+  }
 }
 
-function executePromise() {
-  createPromise(process.argv[2]).then(console.log, function (e) {
-    console.log(e.message);
-  });
-}
-executePromise();
-module.exports = { executePromise, createPromise };
+const usePromise = () => {
+  parsePromised().then(console.log, console.log);
+};
+
+usePromise();
+module.exports = {
+  parsePromised,
+  usePromise,
+};
