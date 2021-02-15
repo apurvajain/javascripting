@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
-// var LocalStorage = require('node-localstorage').LocalStorage,
-// localStorage = new LocalStorage('./scratch');
+var LocalStorage = require("node-localstorage").LocalStorage,
+localStorage = new LocalStorage("./scratch");
 
 const users = [];
 const fetchUsers = (numberOfUsers) => {
@@ -12,17 +12,21 @@ const fetchUsers = (numberOfUsers) => {
       })
       .then((jsonResponse) => {
         users.push(jsonResponse["results"]);
-        // count++;
-        // if (count === numberOfUsers) {
-        //   console.log(users);
-        // }
+        count++;
+        if (count === numberOfUsers) {
+          localStorage.setItem("users", JSON.stringify(users));
+          console.log(localStorage.getItem("users"));
+        }
       })
       .catch((error) => {
         console.log(error);
       });
   }
+  
 };
 
-//fetchUsers(3);
+
+fetchUsers(3);
+
 
 module.exports = { fetchUsers, users };

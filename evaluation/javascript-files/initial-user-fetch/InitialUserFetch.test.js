@@ -1,4 +1,4 @@
-const { expect } = require("@jest/globals");
+const { expect, test } = require("@jest/globals");
 const { fetchUsers, users } = require("./InitialUserFetch");
 
 test("Length of users should be 3", (done) => {
@@ -19,3 +19,4 @@ test("Users should be of object data type and have a name property", (done) => {
     done();
   }, 3000);
 });
+
