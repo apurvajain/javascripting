@@ -43,6 +43,21 @@ function doubleMoney() {
   displayAllUsers();
 }
 
+function showMillionares(){
+  var users = JSON.parse(localStorage.getItem('profile'));
+  var filterUsers = users.filter((user)=>{
+      if(user.money>=1000000 && user.money<1000000000){
+          return true;
+      }
+  });
+  console.log(`<--------Millionare Users : START-------->`);
+  filterUsers.forEach((user)=>{
+    console.log('name = ' + user.name + '     '+'money = ' + user.money);
+  })
+  console.log(`<--------Users : END-------->`);
+
+}
+
 
 function displayAllUsers() {
   var users = JSON.parse(localStorage.getItem('profile'));
@@ -56,7 +71,7 @@ function displayAllUsers() {
 
 
 function setMoney(){
-  return Math.random() * (1000 - 10) + 10;
+  return Math.random() * (1000000000 - 1000000) + 1000000;
 }
 
 function clearLocalStorage() {
@@ -71,7 +86,8 @@ module.exports = {
   setMoney,
   clearLocalStorage,
   fetchAllUsers,
-  doubleMoney
+  doubleMoney,
+  showMillionares
 }
   
    // localStorage.setItem('Profile',`${fullname.first}  ${fullname.last}`) ;
