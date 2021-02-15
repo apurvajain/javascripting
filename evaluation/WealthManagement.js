@@ -10,45 +10,68 @@
 // and print results as per chosen operation
 
 const fetch = require("node-fetch");
+var LocalStorage = require("node-localstorage").LocalStorage,
+localStorage = new LocalStorage("./scratch");
 
-function personDetails(user){
-    const money =  Math.floor((Math.random() * 10000) + 1000);
-    const person = {
-        name: 'Name:'+  user.name.first +' '+  user.name.last,
-        wealth: money
-    }
-    return(person.name + ' Wealth: ' + person.wealth)
+
+var storedUsers = localStorage.getItem("users");
+var users = storedUsers
+
+
+function personDetails(user) {
+  const money = Math.floor(Math.random() * 10000 + 1000);
+  const person = {
+    name: "Name:" + user.name.first + " " + user.name.last,
+    wealth: money,
+  };
+  //return person.name + " Wealth: " + person.wealth;
+  return person
 }
-
-
-const fetchPeople = () => {
-  fetch(`https://randomuser.me/api/?results=3`)
+var users = [];
+const fetchPeople = (count) => {
+  fetch(`https://randomuser.me/api/?results=${count}`)
     .then(function (response) {
       return response.json(); //returns a promise
     })
     .then(function (data) {
+      
       data.results.forEach((person) => {
-        console.log(personDetails(person));
+       users.push(personDetails(person));
+        var  p =  personDetails(person)
+        console.log(p.name + " Wealth: " + p.wealth)
       });
+      console.log(localStorage.setItem("users", users));
+      //console.log(users)
     })
-    .then(()=>menu())
-}
+    .then(() => menu());
+};
+
 //only after fetch is success call menu
 
 const menu = () => {
-  const readline = require('readline').createInterface({
+  const readline = require("readline").createInterface({
     input: process.stdin,
-    output: process.stdout
+    output: process.stdout,
   });
-   
-  readline.question('1. Add user and print new user list\n2. Double money of all users and print updated user list\n3. Show only millionares\n4. Sort by richest\n5. Calculate total wealth of all users and print it\n6. Exit\n', entry => {
-    console.log(entry);
-    readline.close();
-  });
-  
+
+  readline.question(
+    "1. Add user and print new user list\n2. Double money of all users and print updated user list\n3. Show only millionares\n4. Sort by richest\n5. Calculate total wealth of all users and print it\n6. Exit\n",
+    (entry) => {
+      query(entry);
+      readline.close();
+      console.log("hi" + users);
+    }
+  );
+};
+
+function query(value) {
+  // 1. Add user and print new user list
+  if (value === 1) {
+
+  }
 }
 
-fetchPeople();
+fetchPeople(3);
 //menu()
 
 module.exports = fetchPeople;
