@@ -2,7 +2,7 @@ const { copyFileSync } = require("fs");
 const fetch = require("node-fetch");
 const {LocalStorage} = require("node-localstorage");
 var localStorage = new LocalStorage('./scratch'); 
-var users = [];
+
 function fetchUsers() {
     return fetch(`https://randomuser.me/api`)
       .then(function (response) {
