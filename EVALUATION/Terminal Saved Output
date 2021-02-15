@@ -1,0 +1,74 @@
+Last login: Sun Feb 14 21:05:49 on ttys002
+➜  ~ cd /Users/Isha_Deep/Desktop/WEEK2
+➜  WEEK2 cd JAVASCRIPTING
+➜  JAVASCRIPTING git:(feat/isha) ✗ mkdir EVALUATION
+➜  JAVASCRIPTING git:(feat/isha) ✗ git checkout main
+error: Your local changes to the following files would be overwritten by checkout:
+	.DS_Store
+	promise/exercises/.DS_Store
+	promise/exercises/fulfill-a-promise/FulfillAPromise.js
+	promise/exercises/fulfill-a-promise/FulfillAPromise.test.js
+Please commit your changes or stash them before you switch branches.
+Aborting
+➜  JAVASCRIPTING git:(feat/isha) ✗ git add .
+➜  JAVASCRIPTING git:(feat/isha) ✗ git commit -m "Add evaluation folder"
+[feat/isha 1af5eab] Add evaluation folder
+ 10 files changed, 132 insertions(+), 8 deletions(-)
+ create mode 100644 promise/.DS_Store
+ create mode 100644 promise/exercises/throw-an-error/ThrowAnError.js
+ delete mode 100644 promise/exercises/warmup.js
+ create mode 100644 promise/final/get-country-and-neighbour.js
+ create mode 100644 promise/final/get-country-data.js
+ create mode 100644 promise/final/promisify.js
+➜  JAVASCRIPTING git:(feat/isha) git checkout main                    
+Switched to branch 'main'
+Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+➜  JAVASCRIPTING git:(main) git checkout -b test/isha
+Switched to a new branch 'test/isha'
+➜  JAVASCRIPTING git:(test/isha) git pull origin test/isha
+fatal: couldn't find remote ref test/isha
+➜  JAVASCRIPTING git:(test/isha) git push origin test/isha
+Total 0 (delta 0), reused 0 (delta 0)
+remote: 
+remote: Create a pull request for 'test/isha' on GitHub by visiting:
+remote:      https://github.com/TechUniversity-2021/javascripting/pull/new/test/isha
+remote: 
+To https://github.com/TechUniversity-2021/javascripting.git
+ * [new branch]      test/isha -> test/isha
+➜  JAVASCRIPTING git:(test/isha) cd EVALUATION
+➜  EVALUATION git:(test/isha) touch getUserWealth.ssh
+➜  EVALUATION git:(test/isha) ✗ vi getUserWealth.ssh 
+➜  EVALUATION git:(test/isha) ✗ ./getUserWealth.ssh 
+zsh: permission denied: ./getUserWealth.ssh
+➜  EVALUATION git:(test/isha) ✗ vi sample.ssh 
+➜  EVALUATION git:(test/isha) ✗ sample.ssh 
+zsh: command not found: sample.ssh
+➜  EVALUATION git:(test/isha) ✗ ./sample.ssh
+zsh: permission denied: ./sample.ssh
+➜  EVALUATION git:(test/isha) ✗ vi sample.sh
+
+pwd
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+-- INSERT --
