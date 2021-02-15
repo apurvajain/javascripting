@@ -11,6 +11,14 @@
 
 const fetch = require("node-fetch");
 
+function personDetails(user){
+    const money =  Math.floor((Math.random() * 10000) + 1000);
+    const person = {
+        name: 'Name:'+  user.name.first +' '+  user.name.last,
+        wealth: money
+    }
+    return(person.name + ' Wealth: ' + person.wealth)
+}
 
 
 function getName() {
@@ -20,7 +28,7 @@ function getName() {
     })
     .then(function (data) {
       data.results.forEach((person) => {
-        console.log(person);
+        console.log(personDetails(person));
       });
     });
 }
