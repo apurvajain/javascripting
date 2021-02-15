@@ -19,5 +19,5 @@ function logUsers() {
     );
   });
 }
-
+logUsers();
 
