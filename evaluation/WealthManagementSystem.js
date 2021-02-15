@@ -12,8 +12,15 @@ let userDetails = {
     wealth : ""
 };
 
-function getUser(url) {
-   clearData()
+function callFirst(url, first) {
+    getUser(url, first)
+    getUser(url, first)
+    getUser(url, first)
+}
+
+function getUser(url, first) {
+    if(first)
+      clearData()
     let wealth = randomNumber(90000, 100000);
     fetch(url)
      .then(function (response) {
@@ -70,14 +77,10 @@ function showAllUsers() {
     })
 }
 
+function addUser(url, first) {
+    getUser(url, first);
+    showAllUsers()
+}
 
 
-getUser("https://randomuser.me/api")
-getData()
- 
-
-
-
-
-// module.exports.init = getUser
-module.exports = {getUser}
+module.exports = {callFirst, addUser}

@@ -15,7 +15,28 @@
 echo "User Wealth Management System"
 # node WealthManagementSystem.js
 
-node -e 'require("./WealthManagementSystem").getUser("https://randomuser.me/api")'
+node -e 'require("./WealthManagementSystem").callFirst("https://randomuser.me/api", true)'
+echo "1. add user name and print new user list"
+echo "2. Double money of all users and print updated user list"
+echo "3. Show only millionares"
+echo "4. Sort by richest"
+echo "5. Calculate total wealth of all users and print it"
+echo "6. Exit"
+
+read number
+
+if [ $number == 1 ]
+then
+   node -e 'require("./WealthManagementSystem").addUser("https://randomuser.me/api", false)'
+elif [ $number == 2 ]
+then
+   echo 2
+elif [ $number == 3 ]
+then
+   echo 3
+else
+   echo 4
+fi
 
 
 
