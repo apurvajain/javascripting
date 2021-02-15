@@ -2,7 +2,19 @@ const fetch = require("node-fetch");
 var LocalStorage = require("node-localstorage").LocalStorage,
 localStorage = new LocalStorage("./scratch");
 
-const users = [];
+
+var retrievedUsers = localStorage.getItem("users");
+
+if(retrievedUsers===null){
+  var users=[];
+}
+else{
+  var users = JSON.parse(retrievedUsers);
+}
+
+
+
+
 const fetchUsers = (numberOfUsers) => {
   let count = 0;
   for (let i = 0; i < numberOfUsers; i++) {
@@ -15,7 +27,7 @@ const fetchUsers = (numberOfUsers) => {
         count++;
         if (count === numberOfUsers) {
           localStorage.setItem("users", JSON.stringify(users));
-          console.log(localStorage.getItem("users"));
+          //console.log(localStorage.getItem("users"));
         }
       })
       .catch((error) => {
