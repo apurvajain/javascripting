@@ -25,6 +25,8 @@ do
     fi
     if [ "$option" == "5" ]
     then node -e 'require("./WealthManagementSystem.js").getTotalWealth()'
+    else
+    echo "Please enter valid option"
+    echo "  "
     fi
-
 done
