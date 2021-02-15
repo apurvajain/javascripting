@@ -20,5 +20,8 @@ do
     if [ "$option" == "2" ]
     then node -e 'require("./CallAPI.js").doubleWealth()'
     fi
+    if [ "$option" == "3" ]
+    then node -e 'require("./CallAPI.js").millonaires'
+    fi
 
 done

@@ -13,7 +13,7 @@ async function fetchUsers() {
           obj["name"] =
             item.name.title + " " + item.name.first + " " + item.name.last;
           obj["wealth"] = Math.floor(
-            Math.random() * 10000 + Math.random() * 10000
+            Math.random() * 1000000 + Math.random() * 1000000
           );
           users.push(obj);
           localStorage.setItem("users", JSON.stringify(users));
@@ -38,6 +38,7 @@ const millionaires = users.filter(function (users) {
   return users.wealth > 100000;
 });
 
+
 fetchUsers();
 
-module.exports = { fetchUsers, doubleWealth };
+module.exports = { fetchUsers, doubleWealth, millionaires};
