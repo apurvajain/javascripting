@@ -13,3 +13,26 @@ if [ $command == 1 ]
 then
 node FetchData.js
 fi
+
+if [ $command == 2 ]
+then
+node DoubleMoney.js
+fi
+
+if [ $command == 3 ]
+then
+node GetMill.js
+fi
+
+if [ $command == 4 ]
+then
+node GetRichest.js
+fi
+
+if [ $command == 5 ]
+then
+node GetTotal.js
+fi
+
+
+

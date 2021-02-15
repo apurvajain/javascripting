@@ -17,16 +17,19 @@ const myFunction = async function () {
         
 
    const name=personData.results[0].name.first
-   const wealth=Math.random()*10000000
-   console.log(name)
+   const wealth=Math.random()*100000
 
-  console.log(localStorage.setItem(name,wealth));
-
-
+   try{
+       console.log("Successfully fetched")
+      
+   localStorage.setItem(name,parseFloat(wealth))
+   }
+   catch(err)
+   {
+       console.log(err.message)
+   }
    
-    
- 
-   
+
 }
 
 myFunction()
