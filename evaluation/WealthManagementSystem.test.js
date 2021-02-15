@@ -1,4 +1,4 @@
-const {fetchUsers, doubleMoney, showMillionares, sortByRiches} = require("./WealthManagementSystem");
+const {fetchUsers, doubleMoney, showMillionares, sortByRiches, totalWealth} = require("./WealthManagementSystem");
 
 
 test('can call fetchUsers function', () => {
@@ -22,6 +22,15 @@ test("can show millionare with console log", (done) => {
 test("can sort users by wealth with console log", (done) => {
     const consoleSpy = jest.spyOn(console, "log")
     sortByRiches()
+    setTimeout(() => {
+        expect(consoleSpy).toHaveBeenCalled();
+        done();
+    }, 3000);    
+});
+
+test("can calculate  total wealth", (done) => {
+    const consoleSpy = jest.spyOn(console, "log")
+    totalWealth()
     setTimeout(() => {
         expect(consoleSpy).toHaveBeenCalled();
         done();

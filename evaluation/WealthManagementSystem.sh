@@ -21,6 +21,8 @@ number=1
 startDetails="<--------USER DETAILS START----------->"
 endDetails="<--------USER  END ------------------->"
 
+selectOption="you have selected option"
+
 while [ $number != 6 ]
 do
 echo "1. add user name and print new user list"
@@ -33,29 +35,38 @@ echo "6. Exit"
 read number
    if [ $number == 1 ]
    then
+      echo $selectOption 1
       node -e 'require("./WealthManagementSystem").fetchUsers("https://randomuser.me/api")'
       echo $startDetails
       node -e 'require("./WealthManagementSystem").showAllUsers()'
       echo $endDetails
    elif [ $number == 2 ]
    then
+      echo $selectOption 2
       node -e 'require("./WealthManagementSystem").doubleMoney()'
       echo $startDetails
       node -e 'require("./WealthManagementSystem").showAllUsers()'
       echo $endDetails
    elif [ $number == 3 ]
    then
+      echo $selectOption 3
       echo $startDetails
       node -e 'require("./WealthManagementSystem").showMillionares()'
       echo $endDetails
    elif [ $number == 4 ]
    then
+      echo $selectOption 4
       echo $startDetails
       node -e 'require("./WealthManagementSystem").sortByRiches()'
       echo $endDetails
 
+   elif [ $number == 5 ]
+   then
+      echo $selectOption 5
+      echo $startDetails
+      node -e 'require("./WealthManagementSystem").totalWealth()'
+      echo $endDetails
    else
-   
       echo EXIT
    fi
 done

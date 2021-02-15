@@ -102,8 +102,16 @@ function sortByRiches() {
   });
     console.log(sortByRiches);
 }
+
+function totalWealth() {
+    let allData = getAllUsers();
+    let total = allData.reduce((accumulator, current) => {
+       return accumulator += current.wealth
+    }, 0)
+    console.log(total);
+}
   
  
 
 
-module.exports = {fetchUsers, showAllUsers, storeUser, doubleMoney, showMillionares, clearData, sortByRiches}
+module.exports = {fetchUsers, showAllUsers, storeUser, doubleMoney, showMillionares, clearData, sortByRiches,totalWealth}
