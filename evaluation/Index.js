@@ -24,13 +24,21 @@ function fetchAllUsers(){
   });
 }
 
+function AddUser(){
+  fetchUsers().then(user => {
+    var users = JSON.parse(localStorage.getItem('profile'));
+    users.push(user);
+    localStorage.setItem('profile', JSON.stringify(users));
+    displayAllUsers();
+  });
+}
 
 
 function displayAllUsers() {
   var users = JSON.parse(localStorage.getItem('profile'));
   console.log(`<--------Users : START-------->`);
   users.forEach(user => {
-    console.log('name ' + user.name + '     '+'money' + user.money);
+    console.log('name = ' + user.name + '     '+'money = ' + user.money);
   });
   console.log(`<--------Users : END-------->`);
 
@@ -46,6 +54,7 @@ function clearLocalStorage() {
 
 
 module.exports = {
+  AddUser,
   fetchUsers,
   displayAllUsers,
   setMoney,
