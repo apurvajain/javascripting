@@ -78,6 +78,15 @@ function clearLocalStorage() {
   localStorage.clear();
 }
 
+function sortByRichest(){
+  var users = JSON.parse(localStorage.getItem('profile'));
+  users.sort((a,b) => (a.money > b.money) ? -1 : ((b.money> a.money) ? 1 : 0));
+  console.log(`<--------Users(Sort By Money) : START-------->`);
+  users.forEach((user)=>{
+    console.log('name = ' + user.name + '     '+'money = ' + user.money);
+  });
+  console.log(`<--------Users : END-------->`);
+}
 
 module.exports = {
   AddUser,
@@ -87,7 +96,8 @@ module.exports = {
   clearLocalStorage,
   fetchAllUsers,
   doubleMoney,
-  showMillionares
+  showMillionares,
+  sortByRichest
 }
   
    // localStorage.setItem('Profile',`${fullname.first}  ${fullname.last}`) ;

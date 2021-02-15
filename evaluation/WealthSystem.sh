@@ -14,6 +14,7 @@ do
         1) node -e 'require("./Index").AddUser()';;
         2) node -e 'require("./Index").doubleMoney()';;
         3) node -e 'require("./Index").showMillionares()';;
+        4) node -e 'require("./Index").sortByRichest()';;
         6) node -e 'require("./Index").clearLocalStorage()';;
     esac
 done    
