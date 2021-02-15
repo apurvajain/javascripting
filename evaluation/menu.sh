@@ -11,4 +11,11 @@ do
     echo "6. Exit"
     read option
     echo "You entered $option"
+    if [ "$option" == "1" ]
+    then node -e 'require("./WealthManagementSystem.js").fetchUsers()'
+    fi
+    if [ "$option" == "2" ]
+    then node -e 'require("./WealthManagementSystem.js").doubleWealth()'
+    fi
+
 done
