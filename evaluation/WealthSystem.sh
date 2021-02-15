@@ -12,13 +12,14 @@ do
     read INPUT_NUMBER
     case $INPUT_NUMBER in
         1) node -e 'require("./Index").AddUser()';;
+        2) node -e 'require("./Index").doubleMoney()';;
         6) node -e 'require("./Index").clearLocalStorage()';;
     esac
 done    
 
-      do node -e 'require("./Index").displayAllUsers()';;
-        2) do node -e 'require("./Index").clearLocalStorage()';;
-        6)  do node -e 'require("./Index").clearLocalStorage()';;
+    #   do node -e 'require("./Index").displayAllUsers()';;
+    #     2) do node -e 'require("./Index").clearLocalStorage()';;
+    #     6)  do node -e 'require("./Index").clearLocalStorage()';;
 
 
 

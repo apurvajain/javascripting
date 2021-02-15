@@ -33,6 +33,16 @@ function AddUser(){
   });
 }
 
+function doubleMoney() {
+  var users = JSON.parse(localStorage.getItem('profile'));
+  
+  users.map((user)=>{
+    user.money = user.money*2;
+  }) 
+  localStorage.setItem('profile', JSON.stringify(users));
+  displayAllUsers();
+}
+
 
 function displayAllUsers() {
   var users = JSON.parse(localStorage.getItem('profile'));
@@ -43,6 +53,7 @@ function displayAllUsers() {
   console.log(`<--------Users : END-------->`);
 
 }
+
 
 function setMoney(){
   return Math.random() * (1000 - 10) + 10;
@@ -59,7 +70,8 @@ module.exports = {
   displayAllUsers,
   setMoney,
   clearLocalStorage,
-  fetchAllUsers
+  fetchAllUsers,
+  doubleMoney
 }
   
    // localStorage.setItem('Profile',`${fullname.first}  ${fullname.last}`) ;
