@@ -30,10 +30,10 @@ then
    node -e 'require("./WealthManagementSystem").addUser("https://randomuser.me/api", false)'
 elif [ $number == 2 ]
 then
-   echo 2
+   node -e 'require("./WealthManagementSystem").doubleMoney()'
 elif [ $number == 3 ]
 then
-   echo 3
+   node -e 'require("./WealthManagementSystem").showMillionares()'
 else
    echo 4
 fi

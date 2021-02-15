@@ -3,6 +3,7 @@ const { get } = require("http");
 const fetch = require("node-fetch");
 const { clear } = require("console");
 var localStorage = new LocalStorage('./scratch'); 
+
 function randomNumber(min, max) {  
     return Math.floor(Math.random() * (max - min) + min); 
 }  
@@ -46,7 +47,7 @@ function getUser(url, first) {
 
 
 function setData(allUsers) {
-    allData = getData()
+    let allData = getData()
     if(allData.length > 0) {
         allData.forEach((user)  => {
             allUsers.push(user)
@@ -56,7 +57,7 @@ function setData(allUsers) {
 }
 
 function clearData() {
-    allData = getData()
+    let allData = getData()
     allData.length = 0;
     localStorage.setItem("users", JSON.stringify(allData));
 }
@@ -71,10 +72,10 @@ function getData() {
 }
 
 function showAllUsers() {
-    let allUsers = getData();
-    allUsers.forEach((user) => {
-        console.log(user.fullname + " " + user.wealth)
-    })
+   let allData = getData();
+   allData.forEach((user) => {
+    console.log(user.fullname + " " + user.wealth)
+   })
 }
 
 function addUser(url, first) {
@@ -82,5 +83,33 @@ function addUser(url, first) {
     showAllUsers()
 }
 
+function doubleMoney() {
+   let allData = getData();
+   allData.forEach((user) => {
+     user.wealth = user.wealth * 2
+   })
+   allData.length = 
+   setData(allData)
+   showAllUsers()
+   
+}
 
-module.exports = {callFirst, addUser}
+function showMillionares() {
+   let allData = getData();
+   let millionare = 0;
+   let millionareUser;
+   allData.forEach((user) => {
+     user.wealth = user.wealth * 2
+     if(user.wealth > millionare){
+       millionare = user.wealth;
+       millionareUser = user
+     } 
+    })
+   console.log("Millionare user is: ")
+   console.log(millionareUser)
+   console.log("Millionare user end ")
+}
+
+
+
+module.exports = {callFirst, addUser, doubleMoney, showAllUsers, showMillionares}
