@@ -1,4 +1,4 @@
-const{fetchUser, clearUserDetails, displayUsers}= require("./WealthManagementSystem");
+const{fetchUser, clearUserDetails, displayUsers, doubleMoney}= require("./WealthManagementSystem");
 
 test('can call fetchUser', () => {
     fetchUser("url");
@@ -14,3 +14,8 @@ test('can call displayUsers', () => {
     displayUsers();
 })
 //to edit test for display
+
+test('can call doubleMoney', () => {
+    doubleMoney();
+})
+//to edit test for doubling money
