@@ -1,8 +1,7 @@
 const index = require("./Index");
 const fetch = require('node-fetch');
 const {Response} = jest.requireActual('node-fetch');
-const { LocalStorage } = require("node-localstorage");
-const localStorage = new LocalStorage('./UserWealthStorage'); 
+
 
 
 
@@ -31,6 +30,22 @@ test(" money function should return a number greater than MIN_MONEY and less tha
     expect(index.getMoney()).toBeGreaterThan(index.MIN_MONEY-1);
     expect(index.getMoney()).toBeLessThan(index.MAX_MONEY);
 });
+
+
+test("fetchAllUsers function call fetch api 3 times  ", async () => {
+
+    localStorage.clear();
+    const firstname = 'Apoorva',lastname = 'Choudhary';
+    let user = JSON.stringify({ results: [{ name: {first:firstname, last:lastname}}] } );
+    fetch.mockReturnValue(Promise.resolve(new Response(user)));
+    await index.fetchAllUsers();
+    expect(fetch).toHaveBeenCalledTimes(3);
+    expect(fetch).toHaveBeenCalledWith(`https://randomuser.me/api`);
+    fetch.mockClear();
+  
+    
+});
+
 
 
 

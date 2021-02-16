@@ -27,6 +27,25 @@ function getMoney(){
     return Math.random() * (MAX_MONEY - MIN_MONEY) + MIN_MONEY;
 }
 
+function displayAllUsers() {
+    var users = JSON.parse(localStorage.getItem('profile'));
+    console.log(`<--------Users : START-------->`);
+    users.forEach(user => {
+      console.log('name = ' + user.name + '     '+'money = ' + user.money);
+    });
+    console.log(`<--------Users : END-------->`);
+  
+}
+
+
+function fetchAllUsers(){
+    Promise.all([fetchUser(),fetchUser(),fetchUser()]).then(users => {
+        localStorage.setItem('profile', JSON.stringify(users));
+        displayAllUsers();
+    }).catch((err)=>{console.log(err.message)});
+}
+
+
 
 
 
