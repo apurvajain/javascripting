@@ -1,0 +1,17 @@
+{
+  "name": "evaluation-changes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "WealthManagementSystem.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
