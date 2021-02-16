@@ -1,4 +1,4 @@
-const{fetchUser, clearUserDetails}= require("./WealthManagementSystem");
+const{fetchUser, clearUserDetails, displayUsers}= require("./WealthManagementSystem");
 
 test('can call fetchUser', () => {
     fetchUser("url");
@@ -8,4 +8,9 @@ test('can call fetchUser', () => {
 test('can call clearUserDetails', () => {
     clearUserDetails();
 })
-////to edit test for clear
+//to edit test for clear
+
+test('can call displayUsers', () => {
+    displayUsers();
+})
+//to edit test for display

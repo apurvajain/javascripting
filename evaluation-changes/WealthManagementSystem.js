@@ -2,8 +2,15 @@ const {LocalStorage} = require("node-localstorage");
 var localStorage = new LocalStorage('./scratch'); 
 const fetch = require("node-fetch");
 
+function displayUsers() {
+    let allUsers = getAllUserDetails();
+    allUsers.forEach((user) => {
+     console.log("name : "+user.fullname + " wealth : " + user.wealth)
+    })
+ } 
+
 function clearUserDetails() {
-    let allUsers = getAllUserDetails()
+    let allUsers = getAllUserDetails();
     while (allUsers.length) {
         allUsers.pop();
     }
@@ -48,7 +55,7 @@ function fetchUser(url) {
         })
         .catch((error)=> {
             //console.log("hi")
-            console.log(error)
+            console.log(error);
         })
 }
 
@@ -56,4 +63,4 @@ function fetchUser(url) {
 
 
 //fetchUser("https://randomuser.me/api");
-module.exports={fetchUser, clearUserDetails}
+module.exports={fetchUser, clearUserDetails, displayUsers}
