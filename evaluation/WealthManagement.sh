@@ -13,9 +13,7 @@ echo 'Welcome to the User wealth management system'
 
 node -e 'require("./WealthManagement").clearLocalStorage()'
 node -e 'require("./WealthManagement").fetchUsers(3)'
-echo $"<--------User details: START----------->"
 node -e 'require("./WealthManagement").displayAllUsers()'
-echo $"<--------User details: END ------------->"
 option=0
 while [ "$option" != 6 ]
 do
@@ -31,17 +29,18 @@ read option
    then
       echo $"You have selected option" 1
       node -e 'require("./WealthManagement").fetchUsers(1)'
-      echo $"<--------User details: START----------->"
       node -e 'require("./WealthManagement").displayAllUsers()'
-      echo $"<--------User details: END ------------->"
    
    elif [ "$option" == 2 ]
    then
       echo $"You have selected option" 2
       node -e 'require("./WealthManagement").doubleMoney()'
-      echo $"<--------User details: START----------->"
       node -e 'require("./WealthManagement").displayAllUsers()'
-      echo $"<--------User details: END ------------->"   
+
+   elif [ "$option" == 3 ]
+   then
+      echo $"You have selected option" 3
+      node -e 'require("./WealthManagement").showMillionaires()'
 
    else
       echo EXIT

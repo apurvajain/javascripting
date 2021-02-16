@@ -34,26 +34,44 @@ function fetchUsers(usersCount) {
 
 function displayAllUsers() {
   let usersDetails = JSON.parse(localStorage.getItem("users"));
+  console.log("<--------User details: START----------->")
   usersDetails.forEach((user) => {
     console.log("Name: " + user.name + "  " + "Wealth: " + user.wealth);
   });
+  console.log("<--------User details: END ------------->")
 }
 
 //Double money of all users
 function doubleMoney() {
   let usersDetails = JSON.parse(localStorage.getItem("users"));
-    let doubledMoney = usersDetails.map((user)=>{
-        return({
-            name: user.name,
-            wealth: user.wealth * 2
-        })
-    })
-    localStorage.setItem("users", JSON.stringify(doubledMoney))
-  };
+  let doubledMoney = usersDetails.map((user) => {
+    return {
+      name: user.name,
+      wealth: user.wealth * 2,
+    };
+  });
+  localStorage.setItem("users", JSON.stringify(doubledMoney));
+}
 
+function showMillionaires() {
+  let usersDetails = JSON.parse(localStorage.getItem("users"));
+  console.log("<--------Millionaire User details: START----------->")
+    usersDetails.forEach((user)=>{
+        if (user.wealth > 10000000){
+            console.log("Name: " + user.name + "  " + "Wealth: " + user.wealth);
+        }
+    })
+  console.log("<--------Millionaire User details: END----------->")
+}
 
 function clearLocalStorage() {
   localStorage.clear();
 }
 
-module.exports = { fetchUsers, displayAllUsers, clearLocalStorage,doubleMoney };
+module.exports = {
+  fetchUsers,
+  displayAllUsers,
+  clearLocalStorage,
+  doubleMoney,
+  showMillionaires,
+};
