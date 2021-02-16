@@ -1,4 +1,4 @@
-const{fetchUser, clearUserDetails, displayUsers, doubleMoney, showMillionaires}= require("./WealthManagementSystem");
+const{fetchUser, clearUserDetails, displayUsers, doubleMoney, showMillionaires, sortByRichest}= require("./WealthManagementSystem");
 
 test('can call fetchUser', () => {
     fetchUser("url");
@@ -29,3 +29,12 @@ test("can display millionaires", (done) => {
     }, 3000);    
 });
 ////to edit test for finding millionaires
+
+test("can sort users by wealth", (done) => {
+    const consoleSpy = jest.spyOn(console, "log")
+    sortByRichest();
+    setTimeout(() => {
+        expect(consoleSpy).toHaveBeenCalled();
+        done();
+    }, 3000);    
+});
