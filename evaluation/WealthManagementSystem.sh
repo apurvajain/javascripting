@@ -14,7 +14,7 @@
 
 echo "User Wealth Management System"
 # node WealthManagementSystem.js
-node -e 'require("./WealthManagementSystem").clearData()'
+node -e 'require("./WealthManagementSystem").clearUserData()'
 node -e 'require("./WealthManagementSystem").fetchUsers("https://randomuser.me/api")'
 node -e 'require("./WealthManagementSystem").showAllUsers()'
 number=1

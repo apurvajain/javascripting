@@ -86,7 +86,7 @@ function doubleMoney() {
     console.log("Millionare user end ")
  }
 
-function clearData() {
+function clearUserData() {
     let allData = getAllUsers()
     while (allData.length) {
         allData.pop();
@@ -114,4 +114,4 @@ function totalWealth() {
  
 
 
-module.exports = {fetchUsers, showAllUsers, storeUser, doubleMoney, showMillionares, clearData, sortByRiches,totalWealth}
+module.exports = {fetchUsers, showAllUsers, storeUser, doubleMoney, showMillionares, clearUserData, sortByRiches,totalWealth}
