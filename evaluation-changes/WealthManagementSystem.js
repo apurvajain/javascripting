@@ -27,6 +27,15 @@ function doubleMoney() {
     localStorage.setItem("allUsers", JSON.stringify(doubledWealth));
 }
 
+function totalWealth() {
+    let allUsers = getAllUserDetails();
+    let total = allUsers.reduce((accumulator, current) => {
+       return accumulator += current.wealth
+    }, 0)
+    console.log(total);
+}
+  
+
 function sortByRichest() {
     let allUsers = getAllUserDetails();
     sorted=allUsers.sort((a, b) => (a.wealth < b.wealth) ? 1 : -1);
@@ -94,4 +103,4 @@ function fetchUser(url) {
 
 
 //fetchUser("https://randomuser.me/api");
-module.exports={fetchUser, clearUserDetails, displayUsers, doubleMoney, showMillionaires, sortByRichest}
+module.exports={fetchUser, clearUserDetails, displayUsers, doubleMoney, showMillionaires, sortByRichest, totalWealth}
