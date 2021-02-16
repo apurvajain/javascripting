@@ -10,5 +10,40 @@
 # and print results as per chosen operation 
 
 echo 'Welcome to the User wealth management system'
+
+node -e 'require("./WealthManagement").clearLocalStorage()'
 node -e 'require("./WealthManagement").fetchUsers(3)'
+echo $"<--------User details: START----------->"
 node -e 'require("./WealthManagement").displayAllUsers()'
+echo $"<--------User details: END ------------->"
+option=0
+while [ "$option" != 6 ]
+do
+    echo "1. Add user and print new user list"
+    echo "2. Double money of all users and print updated user list"
+    echo "3. Show only millionares"
+    echo "4. Sort by richest"
+    echo "5. Calculate total wealth of all users and print it"
+    echo "6. Exit"
+
+read option
+   if [ "$option" == 1 ]
+   then
+      echo $"You have selected option" 1
+      node -e 'require("./WealthManagement").fetchUsers(1)'
+      echo $"<--------User details: START----------->"
+      node -e 'require("./WealthManagement").displayAllUsers()'
+      echo $"<--------User details: END ------------->"
+   
+   elif [ "$option" == 2 ]
+   then
+      echo $"You have selected option" 2
+      node -e 'require("./WealthManagement").doubleMoney()'
+      echo $"<--------User details: START----------->"
+      node -e 'require("./WealthManagement").displayAllUsers()'
+      echo $"<--------User details: END ------------->"   
+
+   else
+      echo EXIT
+   fi
+done

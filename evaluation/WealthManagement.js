@@ -16,11 +16,12 @@ function fetchUsers(usersCount) {
       })
       .then(function (data) {
         var userDetails = {};
-        userDetails["name"] = data.results[0].name.first + " " + data.results[0].name.last;
+        userDetails["name"] =
+          data.results[0].name.first + " " + data.results[0].name.last;
         userDetails["wealth"] = Math.floor(Math.random() * 10000000 + 10000);
         //console.log(userDetails)
         users.push(userDetails);
-        localStorage.setItem("users",JSON.stringify(users))
+        localStorage.setItem("users", JSON.stringify(users));
         return users;
       })
       .catch((err) => {
@@ -31,11 +32,28 @@ function fetchUsers(usersCount) {
   }
 }
 
-function displayAllUsers(){
-    let usersDetails = JSON.parse(localStorage.getItem("users"))
-    usersDetails.forEach((user)=>{
-        console.log(user.name + " " + user.wealth)
-    })
+function displayAllUsers() {
+  let usersDetails = JSON.parse(localStorage.getItem("users"));
+  usersDetails.forEach((user) => {
+    console.log("Name: " + user.name + "  " + "Wealth: " + user.wealth);
+  });
 }
-//console.log(fetchUsers(3));
-module.exports = {fetchUsers,displayAllUsers}
+
+//Double money of all users
+function doubleMoney() {
+  let usersDetails = JSON.parse(localStorage.getItem("users"));
+    let doubledMoney = usersDetails.map((user)=>{
+        return({
+            name: user.name,
+            wealth: user.wealth * 2
+        })
+    })
+    localStorage.setItem("users", JSON.stringify(doubledMoney))
+  };
+
+
+function clearLocalStorage() {
+  localStorage.clear();
+}
+
+module.exports = { fetchUsers, displayAllUsers, clearLocalStorage,doubleMoney };
