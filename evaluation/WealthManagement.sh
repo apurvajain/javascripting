@@ -48,12 +48,11 @@ read option
       node -e 'require("./WealthManagement").sortByRichest()'
       node -e 'require("./WealthManagement").displayAllUsers()'
 
-   elif [ "$option" == 4 ]
+   elif [ "$option" == 5 ]
    then
       echo $"You have selected option" 5
       node -e 'require("./WealthManagement").totalWealth()'
    else
-   then
       echo $"You have selected option" 6
       echo EXIT
    fi

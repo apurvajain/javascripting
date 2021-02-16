@@ -73,7 +73,11 @@ function sortByRichest() {
 }
 
 function totalWealth(){
-    
+  let usersDetails = JSON.parse(localStorage.getItem("users"));
+    let totalWealth = usersDetails.reduce((accumulator,currentValue)=>{
+        return accumulator + currentValue.wealth
+    },0)
+    console.log(`<-------Total wealth:------->: ${totalWealth}` )
 }
 
 function clearLocalStorage() {
