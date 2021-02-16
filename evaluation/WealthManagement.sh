@@ -42,7 +42,19 @@ read option
       echo $"You have selected option" 3
       node -e 'require("./WealthManagement").showMillionaires()'
 
+   elif [ "$option" == 4 ]
+   then
+      echo $"You have selected option" 4
+      node -e 'require("./WealthManagement").sortByRichest()'
+      node -e 'require("./WealthManagement").displayAllUsers()'
+
+   elif [ "$option" == 4 ]
+   then
+      echo $"You have selected option" 5
+      node -e 'require("./WealthManagement").totalWealth()'
    else
+   then
+      echo $"You have selected option" 6
       echo EXIT
    fi
 done

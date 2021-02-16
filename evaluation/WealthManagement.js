@@ -34,11 +34,11 @@ function fetchUsers(usersCount) {
 
 function displayAllUsers() {
   let usersDetails = JSON.parse(localStorage.getItem("users"));
-  console.log("<--------User details: START----------->")
+  console.log("<--------User details: START----------->");
   usersDetails.forEach((user) => {
     console.log("Name: " + user.name + "  " + "Wealth: " + user.wealth);
   });
-  console.log("<--------User details: END ------------->")
+  console.log("<--------User details: END ------------->");
 }
 
 //Double money of all users
@@ -55,13 +55,25 @@ function doubleMoney() {
 
 function showMillionaires() {
   let usersDetails = JSON.parse(localStorage.getItem("users"));
-  console.log("<--------Millionaire User details: START----------->")
-    usersDetails.forEach((user)=>{
-        if (user.wealth > 10000000){
-            console.log("Name: " + user.name + "  " + "Wealth: " + user.wealth);
-        }
-    })
-  console.log("<--------Millionaire User details: END----------->")
+  console.log("<--------Millionaire User details: START----------->");
+  usersDetails.forEach((user) => {
+    if (user.wealth > 10000000) {
+      console.log("Name: " + user.name + "  " + "Wealth: " + user.wealth);
+    }
+  });
+  console.log("<--------Millionaire User details: END----------->");
+}
+
+function sortByRichest() {
+  let usersDetails = JSON.parse(localStorage.getItem("users"));
+  usersDetails.sort(function (a, b) {
+    return a.wealth - b.wealth;
+  });
+  localStorage.setItem("users", JSON.stringify(usersDetails));
+}
+
+function totalWealth(){
+    
 }
 
 function clearLocalStorage() {
@@ -74,4 +86,6 @@ module.exports = {
   clearLocalStorage,
   doubleMoney,
   showMillionaires,
+  sortByRichest,
+  totalWealth
 };
