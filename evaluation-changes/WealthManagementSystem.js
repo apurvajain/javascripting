@@ -27,6 +27,17 @@ function doubleMoney() {
     localStorage.setItem("allUsers", JSON.stringify(doubledWealth));
 }
 
+function showMillionaires() {
+    let allUsers = getAllUserDetails();
+    allUsers.forEach((user)=> {
+        if(user.wealth>1000000) {
+            millionaire=user.wealth
+            console.log("name: "+user.fullname+" wealth: "+user.wealth);
+        }
+    })
+    console.log("These are the millionaires");
+ }
+
 function randomNumber(min, max) {  
     return Math.floor(Math.random() * (max - min) + min); 
 }  
@@ -72,4 +83,4 @@ function fetchUser(url) {
 
 
 //fetchUser("https://randomuser.me/api");
-module.exports={fetchUser, clearUserDetails, displayUsers, doubleMoney}
+module.exports={fetchUser, clearUserDetails, displayUsers, doubleMoney, showMillionaires}
