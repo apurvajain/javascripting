@@ -20,13 +20,21 @@ function fetchUser() {
       })
 }
 
+
 function getMoney(){
     //Math.random() returns a random number between 0 (inclusive),  and 1 (exclusive):
     //Range of this is between MIN_MONEY(inclusive), and MAX_MONEY (exclusive);
     return Math.random() * (MAX_MONEY - MIN_MONEY) + MIN_MONEY;
 }
 
+
+
+
 module.exports = {
     fetchUser,
-    getMoney
+    MAX_MONEY,
+    MIN_MONEY,
+    getMoney,
+    fetchAllUsers,
+   
 }
