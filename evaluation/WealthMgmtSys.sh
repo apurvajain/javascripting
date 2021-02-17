@@ -18,6 +18,9 @@ do
         "3")
         node -e 'require("./API.js").fetchMillionaires()'
         ;;
+        "4")
+        node -e 'require("./API.js").sortByWealth()'
+        ;;
         *)
         break
         ;;

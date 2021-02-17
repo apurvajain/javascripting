@@ -96,11 +96,16 @@ function fetchMillionaires(){
     logUserList(users)
 }
 
+function sortByWealth(){
+    usersDataOnDisk.sort(function(userObjectA, userObjectB){return userObjectA.wealth - userObjectB.wealth});
+    logUserList()
+}
 
 module.exports = {
     fetchUserDataAndUpdateList,
     logUserList,
     resetUserData,
     doubleWealth,
-    fetchMillionaires
+    fetchMillionaires,
+    sortByWealth
 }
