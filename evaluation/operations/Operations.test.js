@@ -12,3 +12,13 @@ test('3 user objects should be saved', (done) => {
     done();
   });
 });
+
+test('Should double the wealth of all users', () => {
+  const spyOnGetUser = jest.spyOn(userOps, 'getUsers');
+  const spyOnSaveUser = jest.spyOn(userOps, 'saveUsers');
+  const mockUsers = [{ name: 'Abhi', wealth: 21 }, { name: 'Adi', wealth: 22 }];
+  spyOnGetUser.mockImplementation(() => mockUsers);
+  spyOnSaveUser.mockImplementation((users) => {});
+  const receivedUsers = operations.doubleMoney();
+  expect(receivedUsers).toEqual([{ name: 'Abhi', wealth: 42 }, { name: 'Adi', wealth: 44 }]);
+});

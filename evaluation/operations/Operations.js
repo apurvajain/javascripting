@@ -42,6 +42,7 @@ const doubleMoney = () => {
     return updatedUser;
   });
   userOps.saveUsers(updatedUsers);
+  return updatedUsers;
 };
 
 module.exports = {
