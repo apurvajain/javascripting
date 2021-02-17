@@ -76,9 +76,23 @@ function fetchUserDataAndUpdateList(numOfRequests){
     })
 }
 
+function doubleWealth(){
+    if(usersDataOnDisk.length) {
+        usersDataOnDisk.map(function(userData){
+            userData.wealth *= 2
+            return userData
+        })
+        updateUserDataOnDisk()
+        logUserList(usersDataOnDisk)
+    } else {
+        console.log('User data not available')
+    }
+}
+
 
 module.exports = {
     fetchUserDataAndUpdateList,
     logUserList,
-    resetUserData
+    resetUserData,
+    doubleWealth
 }
