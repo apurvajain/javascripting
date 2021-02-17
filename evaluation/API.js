@@ -89,10 +89,18 @@ function doubleWealth(){
     }
 }
 
+function fetchMillionaires(){
+    const users = usersDataOnDisk.filter(function(userData){
+        return userData.wealth >= 1000000
+    })
+    logUserList(users)
+}
+
 
 module.exports = {
     fetchUserDataAndUpdateList,
     logUserList,
     resetUserData,
-    doubleWealth
+    doubleWealth,
+    fetchMillionaires
 }

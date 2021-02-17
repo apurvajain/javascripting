@@ -15,6 +15,9 @@ do
         "2")
         node -e 'require("./API.js").doubleWealth()'
         ;;
+        "3")
+        node -e 'require("./API.js").fetchMillionaires()'
+        ;;
         *)
         break
         ;;
