@@ -39,8 +39,6 @@ function fetchUsers(usersCount) {
 
 function displayAllUsers() {
   let usersDetails = getUserDetails();
-
-  //   let usersDetails = JSON.parse(localStorage.getItem("users") || "[]");
   console.log("<--------User details: START----------->");
   usersDetails.forEach((user) => {
     console.log("Name: " + user.name + "  " + "Wealth: " + user.wealth);

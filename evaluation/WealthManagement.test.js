@@ -11,15 +11,20 @@ test("Should call fetchUsers function", () => {
   fetchUsers();
 });
 
-test("Should call displayUsers function", () => {
-  displayAllUsers();
+test("Should call displayUsers function", (done) => {
+    const consoleSpy = jest.spyOn(console, "log")
+    displayAllUsers();
+    setTimeout(() => {
+        expect(consoleSpy).toHaveBeenCalled();
+        done();
+      }, 3000);
 });
 
-xtest("Should call doubleMoney function", () => {
+test("Should call doubleMoney function", () => {
   doubleMoney();
 });
 
-xtest("Should show millionares on console", (done) => {
+test("Should show millionares on console", (done) => {
   const consoleSpy = jest.spyOn(console, "log");
   showMillionaires();
   setTimeout(() => {
@@ -28,11 +33,11 @@ xtest("Should show millionares on console", (done) => {
   }, 3000);
 });
 
-xtest("Should call sortByRichest function", () => {
+test("Should call sortByRichest function", () => {
   sortByRichest();
 });
 
-xtest("Should show total wealth on console", (done) => {
+test("Should show total wealth on console", (done) => {
   const consoleSpy = jest.spyOn(console, "log");
   totalWealth();
   setTimeout(() => {
