@@ -38,3 +38,11 @@ test('Should return users sorted by wealth in ascending order', () => {
   const sortedUsers = operations.sortByRichest();
   expect(sortedUsers).toEqual([{ name: 'Adi', wealth: 200 }, { name: 'Abhi', wealth: 2000000 }]);
 });
+
+test('Should return the total wealth of all users', () => {
+  const spyOnGetUser = jest.spyOn(userOps, 'getUsers');
+  const mockUsers = [{ name: 'Abhi', wealth: 2000000 }, { name: 'Adi', wealth: 200 }];
+  spyOnGetUser.mockImplementation(() => mockUsers);
+  const totalWealth = operations.findTotalWealth();
+  expect(totalWealth).toBe(2000000 + 200);
+});
