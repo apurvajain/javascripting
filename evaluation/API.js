@@ -116,5 +116,7 @@ module.exports = {
     doubleWealth,
     fetchMillionaires,
     sortByWealth,
-    totalWealth
+    totalWealth,
+    updateUserDataOnDisk,
+    localStorage
 }
