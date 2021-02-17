@@ -4,11 +4,16 @@ localStorage = new LocalStorage("./scratch");
 
 // Script should initially fetch 3 random users using https://randomuser.me/api API and assign random wealth to the fetched users
 //usersCount - number of users to fetch
-function fetchUsers(usersCount) {
+
+function getUserDetails() {
   let users = JSON.parse(localStorage.getItem("users"));
   if (!users) {
     users = [];
   }
+  return users;
+}
+function fetchUsers(usersCount) {
+  let users = getUserDetails();
   while (usersCount) {
     fetch("https://randomuser.me/api")
       .then(function (response) {
@@ -33,7 +38,9 @@ function fetchUsers(usersCount) {
 }
 
 function displayAllUsers() {
-  let usersDetails = JSON.parse(localStorage.getItem("users"));
+  let usersDetails = getUserDetails();
+
+  //   let usersDetails = JSON.parse(localStorage.getItem("users") || "[]");
   console.log("<--------User details: START----------->");
   usersDetails.forEach((user) => {
     console.log("Name: " + user.name + "  " + "Wealth: " + user.wealth);
@@ -43,7 +50,8 @@ function displayAllUsers() {
 
 //Double money of all users
 function doubleMoney() {
-  let usersDetails = JSON.parse(localStorage.getItem("users"));
+  let usersDetails = getUserDetails();
+
   let doubledMoney = usersDetails.map((user) => {
     return {
       name: user.name,
@@ -54,7 +62,7 @@ function doubleMoney() {
 }
 
 function showMillionaires() {
-  let usersDetails = JSON.parse(localStorage.getItem("users"));
+  let usersDetails = getUserDetails();
   console.log("<--------Millionaire User details: START----------->");
   usersDetails.forEach((user) => {
     if (user.wealth > 10000000) {
@@ -65,19 +73,19 @@ function showMillionaires() {
 }
 
 function sortByRichest() {
-  let usersDetails = JSON.parse(localStorage.getItem("users"));
+  let usersDetails = getUserDetails();
   usersDetails.sort(function (a, b) {
     return a.wealth - b.wealth;
   });
   localStorage.setItem("users", JSON.stringify(usersDetails));
 }
 
-function totalWealth(){
-  let usersDetails = JSON.parse(localStorage.getItem("users"));
-    let totalWealth = usersDetails.reduce((accumulator,currentValue)=>{
-        return accumulator + currentValue.wealth
-    },0)
-    console.log(`<-------Total wealth:------->: ${totalWealth}` )
+function totalWealth() {
+  let usersDetails = getUserDetails();
+  let totalWealth = usersDetails.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue.wealth;
+  }, 0);
+  console.log(`<-------Total wealth:------->: ${totalWealth}`);
 }
 
 function clearLocalStorage() {
@@ -91,5 +99,5 @@ module.exports = {
   doubleMoney,
   showMillionaires,
   sortByRichest,
-  totalWealth
+  totalWealth,
 };
