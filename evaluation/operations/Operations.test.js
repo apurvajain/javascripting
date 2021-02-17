@@ -30,3 +30,11 @@ test('Should return only millionares', () => {
   const millionares = operations.returnMillionares();
   expect(millionares).toEqual([{ name: 'Abhi', wealth: 2000000 }]);
 });
+
+test('Should return users sorted by wealth in ascending order', () => {
+  const spyOnGetUser = jest.spyOn(userOps, 'getUsers');
+  const mockUsers = [{ name: 'Abhi', wealth: 2000000 }, { name: 'Adi', wealth: 200 }];
+  spyOnGetUser.mockImplementation(() => mockUsers);
+  const sortedUsers = operations.sortByRichest();
+  expect(sortedUsers).toEqual([{ name: 'Adi', wealth: 200 }, { name: 'Abhi', wealth: 2000000 }]);
+});

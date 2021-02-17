@@ -51,8 +51,14 @@ const returnMillionares = () => {
   return millionares;
 };
 
+const sortByRichest = () => {
+  const users = userOps.getUsers();
+  const sortedUsers = users.sort((user1, user2) => user1.wealth - user2.wealth);
+  return sortedUsers;
+};
 module.exports = {
   fetchUsers,
   doubleMoney,
   returnMillionares,
+  sortByRichest,
 };
