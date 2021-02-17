@@ -18,7 +18,15 @@ test('Should double the wealth of all users', () => {
   const spyOnSaveUser = jest.spyOn(userOps, 'saveUsers');
   const mockUsers = [{ name: 'Abhi', wealth: 21 }, { name: 'Adi', wealth: 22 }];
   spyOnGetUser.mockImplementation(() => mockUsers);
-  spyOnSaveUser.mockImplementation((users) => {});
+  spyOnSaveUser.mockImplementation(() => {});
   const receivedUsers = operations.doubleMoney();
   expect(receivedUsers).toEqual([{ name: 'Abhi', wealth: 42 }, { name: 'Adi', wealth: 44 }]);
+});
+
+test('Should return only millionares', () => {
+  const spyOnGetUser = jest.spyOn(userOps, 'getUsers');
+  const mockUsers = [{ name: 'Abhi', wealth: 2000000 }, { name: 'Adi', wealth: 200 }];
+  spyOnGetUser.mockImplementation(() => mockUsers);
+  const millionares = operations.returnMillionares();
+  expect(millionares).toEqual([{ name: 'Abhi', wealth: 2000000 }]);
 });

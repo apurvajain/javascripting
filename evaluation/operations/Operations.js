@@ -45,7 +45,14 @@ const doubleMoney = () => {
   return updatedUsers;
 };
 
+const returnMillionares = () => {
+  const users = userOps.getUsers();
+  const millionares = users.filter((user) => user.wealth >= 1000000);
+  return millionares;
+};
+
 module.exports = {
   fetchUsers,
   doubleMoney,
+  returnMillionares,
 };
