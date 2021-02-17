@@ -1,1 +1,1 @@
-node -e 'require("./Index").fetchAllUsers()'
+node -e 'require("./Index").fetchAndDisplayAllUsers()'
