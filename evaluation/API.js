@@ -101,11 +101,19 @@ function sortByWealth(){
     logUserList()
 }
 
+function totalWealth(){
+    const totalWealthOfUsers = usersDataOnDisk.reduce(function(totalWealth, user){
+        return totalWealth + user.wealth
+    }, 0)
+    console.log(`Total wealth of users : ${totalWealthOfUsers}`)
+}
+
 module.exports = {
     fetchUserDataAndUpdateList,
     logUserList,
     resetUserData,
     doubleWealth,
     fetchMillionaires,
-    sortByWealth
+    sortByWealth,
+    totalWealth
 }

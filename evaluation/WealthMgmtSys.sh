@@ -21,6 +21,9 @@ do
         "4")
         node -e 'require("./API.js").sortByWealth()'
         ;;
+        "5")
+        node -e 'require("./API.js").totalWealth()'
+        ;;
         *)
         break
         ;;
