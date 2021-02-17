@@ -9,9 +9,10 @@ const MAX_WEALTH = 3000000;
 
 const fetchUsers = (numberOfUsers) => {
   let users = userOps.getUsers();
+  let fetchedUsers = [];
   let count = 0; // to keep track of the number of users fetched
   for (let i = 0; i < numberOfUsers; i += 1) {
-    fetch('https://randomuser.me/api')
+    fetchedUsers = fetchedUsers.concat(fetch('https://randomuser.me/api')
       .then((response) => {
         if (!response.ok) {
           throw new Error(`No user fetched! ${response.status}`);
@@ -26,11 +27,24 @@ const fetchUsers = (numberOfUsers) => {
         if (count === numberOfUsers) {
           userOps.saveUsers(users);
         }
+        return user[0];
       })
-      .catch((error) => error);
+      .catch((error) => error));
   }
+  return Promise.all(fetchedUsers).then(() => 'Users fetched and saved successfully');
+};
+
+const doubleMoney = () => {
+  const users = userOps.getUsers();
+  const updatedUsers = users.map((user) => {
+    const updatedUser = user;
+    updatedUser.wealth *= 2;
+    return updatedUser;
+  });
+  userOps.saveUsers(updatedUsers);
 };
 
 module.exports = {
   fetchUsers,
+  doubleMoney,
 };
