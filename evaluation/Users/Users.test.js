@@ -5,11 +5,10 @@ test('Local Storgae saves and retrives data', () => {
   user.saveUsers(users);
   const gotUsers = user.getUsers();
   expect(gotUsers).toEqual([{ name: 'Abhi', age: 21 }, { name: 'Adi', age: 22 }]);
-  user.clearLocalStorage();
 });
 
-test('Handle empty local storgae', () => {
+test('Clear local storage and handle empty local storgae', () => {
+  user.clearLocalStorage();
   const gotUsers = user.getUsers();
   expect(gotUsers).toEqual([]);
-  user.clearLocalStorage();
 });
