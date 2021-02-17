@@ -15,7 +15,12 @@ const getUsers = () => {
   return users;
 };
 
+const clearLocalStorage = () => {
+  localStorage.clear();
+};
+
 module.exports = {
   saveUsers,
   getUsers,
+  clearLocalStorage,
 };
