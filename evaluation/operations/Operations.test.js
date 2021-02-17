@@ -7,6 +7,7 @@ test('3 user objects should be saved', (done) => {
     const retrivedUsers = userOps.getUsers();
     expect(retrivedUsers).toHaveLength(3);
     expect(retrivedUsers[0]).toHaveProperty('name');
+    expect(retrivedUsers[0]).toHaveProperty('wealth');
     userOps.clearLocalStorage();
     done();
   }, 2000);
