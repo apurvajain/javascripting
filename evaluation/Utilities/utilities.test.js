@@ -1,4 +1,4 @@
-const utilities = require('./utilities');
+const utilities = require('./Utilities');
 
 const MAX_WEALTH = 3000000;
 const MIN_WEALTH = 50;

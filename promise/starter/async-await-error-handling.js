@@ -1,9 +1,9 @@
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
 
 const whereAmI = async function (country) {
   try {
     const countryRes = await fetch(
-      `https://restcountries.eu/rest/v2/name/${country}`
+      `https://restcountries.eu/rest/v2/name/${country}`,
     );
 
     if (!countryRes.ok) throw new Error('Problem getting country data');
@@ -18,7 +18,7 @@ const whereAmI = async function (country) {
     if (!neighbour) return;
 
     const neighbourRes = await fetch(
-      `https://restcountries.eu/rest/v2/alpha/${neighbour}`
+      `https://restcountries.eu/rest/v2/alpha/${neighbour}`,
     );
 
     if (!neighbourRes.ok) throw new Error('Problem getting neighbour data');
@@ -32,5 +32,5 @@ const whereAmI = async function (country) {
     console.log(err);
   }
 };
-whereAmI("portugal");
-console.log("testing async await");
+whereAmI('portugal');
+console.log('testing async await');
