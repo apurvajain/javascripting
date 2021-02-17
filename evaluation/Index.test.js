@@ -29,7 +29,7 @@ test(' money function should return a number greater than MIN_MONEY and less tha
   expect(index.getMoney()).toBeLessThan(index.MAX_MONEY);
 });
 
-test('fetchAndDisplayAllUsers function call fetchUsers api 3 times  ', async () => {
+test('fetchAndDisplayAllUsers function call fetch api 3 times  ', async () => {
   localStorage.clear();
   const firstname = 'Apoorva'; const lastname = 'Choudhary';
   const user = JSON.stringify({ results: [{ name: { first: firstname, last: lastname } }] });
@@ -39,5 +39,18 @@ test('fetchAndDisplayAllUsers function call fetchUsers api 3 times  ', async () 
   await index.fetchAndDisplayAllUsers();
   expect(fetch).toHaveBeenCalledTimes(3);
   expect(fetch).toHaveBeenCalledWith('https://randomuser.me/api');
+  fetch.mockClear();
+});
+
+test("fetchAndDisplayAllUsers function stores three users in local storage key 'profile'  ", async () => {
+  localStorage.clear();
+  const firstname = 'Apoorva'; const lastname = 'Choudhary';
+  const user = JSON.stringify({ results: [{ name: { first: firstname, last: lastname } }] });
+  fetch.mockReturnValueOnce(Promise.resolve(new Response(user)))
+    .mockReturnValueOnce(Promise.resolve(new Response(user)))
+    .mockReturnValueOnce(Promise.resolve(new Response(user)));
+  await index.fetchAndDisplayAllUsers();
+
+  expect(JSON.parse(localStorage.getItem('profile')).length).toBe(3);
   fetch.mockClear();
 });
