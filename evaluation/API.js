@@ -109,6 +109,7 @@ function totalWealth(){
 }
 
 module.exports = {
+    GET,
     fetchUserDataAndUpdateList,
     logUserList,
     resetUserData,
