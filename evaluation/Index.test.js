@@ -54,3 +54,17 @@ test("fetchAndDisplayAllUsers function stores three users in local storage key '
   expect(JSON.parse(localStorage.getItem('profile')).length).toBe(3);
   fetch.mockClear();
 });
+
+test("addUser function should add  1 user  to localstorage key 'profile'  ", async () => {
+  localStorage.clear();
+  const firstname = 'Apoorva'; const lastname = 'Choudhary';
+  const user = JSON.stringify({ results: [{ name: { first: firstname, last: lastname } }] });
+  fetch.mockReturnValueOnce(Promise.resolve(new Response(user)))
+    .mockReturnValueOnce(Promise.resolve(new Response(user)))
+    .mockReturnValueOnce(Promise.resolve(new Response(user)))
+    .mockReturnValueOnce(Promise.resolve(new Response(user)));
+  await index.fetchAndDisplayAllUsers();
+  await index.addUser();
+  expect(JSON.parse(localStorage.getItem('profile')).length).toBe(4);
+  fetch.mockClear();
+});

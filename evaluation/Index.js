@@ -37,11 +37,20 @@ async function fetchAndDisplayAllUsers() {
   displayAllUsers();
 }
 
+async function addUser() {
+  const user = await fetchUser();
+  const users = JSON.parse(localStorage.getItem('profile'));
+  users.push(user);
+  localStorage.setItem('profile', JSON.stringify(users));
+  displayAllUsers();
+}
+
 module.exports = {
   fetchUser,
   MAX_MONEY,
   MIN_MONEY,
   getMoney,
   fetchAndDisplayAllUsers,
+  addUser,
 
 };
