@@ -61,10 +61,29 @@ const findTotalWealth = () => {
   const users = userOps.getUsers();
   return users.reduce((accumulator, user) => accumulator + user.wealth, 0);
 };
+
+const returnPrintData = (users = 0, type = 'User') => {
+  if (type === 'Total Wealth') {
+    return `<-------${type}:-------->:${users}`;
+  }
+  const stringTemplateEnd = '<-------------------------END----------------------------->';
+  const stringTemplateStart = `<------------------${type} Details: START----------------->\n`;
+  if (users === 0) {
+    // eslint-disable-next-line no-param-reassign
+    users = userOps.getUsers();
+  }
+  let requiredData = '';
+  users.forEach((user) => {
+    requiredData += `Name: ${user.name.title} ${user.name.first} ${user.name.last}\tWealth: ${user.wealth}\n`;
+  });
+  return `${stringTemplateStart}\n${requiredData}\n${stringTemplateEnd}`;
+};
+
 module.exports = {
   fetchUsers,
   doubleMoney,
   returnMillionares,
   sortByRichest,
   findTotalWealth,
+  returnPrintData,
 };
