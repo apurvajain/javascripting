@@ -46,7 +46,7 @@ test("fetchAndDisplayAllUsers function stores three users in local storage key '
   localStorage.clear();
   const firstname = 'Apoorva'; const lastname = 'Choudhary';
   const user = JSON.stringify({ results: [{ name: { first: firstname, last: lastname } }] });
-  fetch.mockReturnValueOnce(Promise.resolve(new Response(user)))
+  fetch.mockResolvedValueOnce(new Response(user))
     .mockReturnValueOnce(Promise.resolve(new Response(user)))
     .mockReturnValueOnce(Promise.resolve(new Response(user)));
   await index.fetchAndDisplayAllUsers();
@@ -67,4 +67,20 @@ test("addUser function should add  1 user  to localstorage key 'profile'  ", asy
   await index.addUser();
   expect(JSON.parse(localStorage.getItem('profile')).length).toBe(4);
   fetch.mockClear();
+});
+
+test(' should double money', async () => {
+  localStorage.clear();
+  const firstname = 'Apoorva'; const lastname = 'Choudhary';
+  const user = JSON.stringify({ results: [{ name: { first: firstname, last: lastname } }] });
+  fetch.mockReturnValueOnce(Promise.resolve(new Response(user)))
+    .mockReturnValueOnce(Promise.resolve(new Response(user)))
+    .mockReturnValueOnce(Promise.resolve(new Response(user)));
+  await index.fetchAndDisplayAllUsers();
+  const users = JSON.parse(localStorage.getItem('profile'));
+  index.doubleMoney();
+  const updatedUsers = JSON.parse(localStorage.getItem('profile'));
+  users.forEach((user, idx) => {
+    expect(user.money * 2).toBe(updatedUsers[idx].money);
+  });
 });

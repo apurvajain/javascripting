@@ -45,6 +45,17 @@ async function addUser() {
   displayAllUsers();
 }
 
+function doubleMoney() {
+  let users = JSON.parse(localStorage.getItem('profile'));
+
+  users = users.map((user) => {
+    user.money *= 2;
+    return user;
+  });
+  localStorage.setItem('profile', JSON.stringify(users));
+  displayAllUsers();
+}
+
 module.exports = {
   fetchUser,
   MAX_MONEY,
@@ -52,5 +63,5 @@ module.exports = {
   getMoney,
   fetchAndDisplayAllUsers,
   addUser,
-
+  doubleMoney,
 };

@@ -11,5 +11,6 @@ do
     read INPUT_NUMBER
     case $INPUT_NUMBER in
         1) node -e 'require("./Index").addUser()';;
+        2) node -e 'require("./Index").doubleMoney()';;
     esac
 done 
