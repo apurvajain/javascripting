@@ -40,3 +40,12 @@ test('doubleMoney() should double money', async () => {
     expect(user.money).toBe(users[idx].money * 2);
   });
 });
+
+test(' should list all millionares', async () => {
+  const consoleSpy = jest.spyOn(console, 'log');
+  const users = [{ name: 'Appy', money: 10000 }, { name: 'shubh', money: 2000000 }];
+  utils.setProfile(users);
+  index.showMillionares();
+  expect(consoleSpy).toHaveBeenCalledWith(`name = ${users[1].name}  money = ${users[1].money}`);
+  expect(consoleSpy).not.toHaveBeenCalledWith(`name = ${users[0].name}  money = ${users[0].money}`);
+});

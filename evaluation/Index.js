@@ -6,7 +6,8 @@ const localStorage = new LocalStorage('./UserWealthStorage');
 async function fetchAndDisplayAllUsers() {
   const users = await utils.fetchThreeUsers();
   utils.setProfile(users);
-  utils.displayAllUsers();
+  const finalUsers = utils.getProfile();
+  utils.displayAllUsers(finalUsers, 'Users in Wealth System');
 }
 
 async function addUser() {
@@ -16,7 +17,8 @@ async function addUser() {
   if (retrievedUsers !== null) users = retrievedUsers;
   users.push(newUser);
   utils.setProfile(users);
-  utils.displayAllUsers();
+  const finalUsers = utils.getProfile();
+  utils.displayAllUsers(finalUsers, 'Users in Wealth System');
 }
 
 function doubleMoney() {
@@ -29,11 +31,23 @@ function doubleMoney() {
   });
 
   utils.setProfile(users);
-  utils.displayAllUsers();
+  const finalUsers = utils.getProfile();
+  utils.displayAllUsers(finalUsers, 'Users Money Doubled');
+}
+
+function showMillionares() {
+  const users = utils.getProfile();
+  const millionares = users.filter((user) => {
+    if (user.money >= 1000000) {
+      return true;
+    }
+  });
+  utils.displayAllUsers(millionares, 'Millionares');
 }
 
 module.exports = {
   fetchAndDisplayAllUsers,
   addUser,
   doubleMoney,
+  showMillionares,
 };
