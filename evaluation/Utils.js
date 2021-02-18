@@ -25,7 +25,6 @@ function fetchUser() {
 
 async function fetchThreeUsers() {
   const users = await Promise.all([fetchUser(), fetchUser(), fetchUser()]);
-  console.log(users);
   return users;
 }
 
