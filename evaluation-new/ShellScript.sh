@@ -44,6 +44,7 @@ EOF
     echo $end ;;
     "6")  echo "You have selected option 6"
     echo "Exit"
+    node -e 'require("./Functions").clearStorage()'
     exit                      ;;
      * )  echo "invalid option"     ;;
     esac
