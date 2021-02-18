@@ -47,14 +47,12 @@ test('Should return the total wealth of all users', () => {
   expect(totalWealth).toBe(2000000 + 200);
 });
 
-// test('Should return printable users data', () => {
-//   const expectedData = '<------------------User Details: START----------------->\n
-// Name: Mr. Abhi Singh\tWealth: 2000000\nName: Mr. Adi Sharma\tWealth: 200\n
-// <-------------------------END----------------------------->';
-//   const spyOnGetUser = jest.spyOn(userOps, 'getUsers');
-//   const mockUsers = [{ name: { title: 'Mr.', first: 'Abhi', last: 'Singh' }, wealth: 2000000 },
-//     { name: { title: 'Mr.', first: 'Adi', last: 'Sharma' }, wealth: 200 }];
-//   spyOnGetUser.mockImplementation(() => mockUsers);
-//   const printData = operations.returnPrintData();
-//   expect(printData).toBe(expectedData);
-// });
+test('Should return printable users data', () => {
+  const expectedData = '<------------------User Details: START----------------->\n\nName: Mr. Abhi Singh\tWealth: 2000000\nName: Mr. Adi Sharma\tWealth: 200\n\n<-------------------------END----------------------------->';
+  const spyOnGetUser = jest.spyOn(userOps, 'getUsers');
+  const mockUsers = [{ name: { title: 'Mr.', first: 'Abhi', last: 'Singh' }, wealth: 2000000 },
+    { name: { title: 'Mr.', first: 'Adi', last: 'Sharma' }, wealth: 200 }];
+  spyOnGetUser.mockImplementation(() => mockUsers);
+  const printData = operations.returnPrintData();
+  expect(printData).toEqual(expectedData);
+});

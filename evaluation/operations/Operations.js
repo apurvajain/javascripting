@@ -85,14 +85,17 @@ const returnPrintData = (users = 0, templateType = 'User') => {
       break;
   }
   if (templateType === 'Total Wealth') {
-    console.log(`<-------${templateType}:-------->:${users}`);
-    return;
+    const stringData = `<-------${templateType}:-------->:${users}`;
+    console.log(stringData);
+    return stringData;
   }
   let requiredData = '';
   users.forEach((user) => {
     requiredData += `Name: ${user.name.title} ${user.name.first} ${user.name.last}\tWealth: ${user.wealth}\n`;
   });
-  console.log(`${stringTemplateStart}\n${requiredData}\n${stringTemplateEnd}`);
+  const stringData = `${stringTemplateStart}\n${requiredData}\n${stringTemplateEnd}`;
+  console.log(stringData);
+  return stringData;
 };
 
 module.exports = {
