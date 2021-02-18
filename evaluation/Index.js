@@ -45,9 +45,17 @@ function showMillionares() {
   utils.displayAllUsers(millionares, 'Millionares');
 }
 
+function sortByRichest() {
+  const users = JSON.parse(localStorage.getItem('profile'));
+  users.sort((a, b) => ((a.money > b.money) ? -1 : ((b.money > a.money) ? 1 : 0)));
+  utils.displayAllUsers(users, 'Users(Sort By Money)');
+  return users;
+}
+
 module.exports = {
   fetchAndDisplayAllUsers,
   addUser,
   doubleMoney,
   showMillionares,
+  sortByRichest,
 };

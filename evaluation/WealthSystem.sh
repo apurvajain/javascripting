@@ -13,5 +13,6 @@ do
         1) node -e 'require("./Index").addUser()';;
         2) node -e 'require("./Index").doubleMoney()';;
         3) node -e 'require("./Index").showMillionares()';;
+        4) node -e 'require("./Index").sortByRichest()';;
     esac
 done 
