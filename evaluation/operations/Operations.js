@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable default-case */
 /* eslint-disable dot-notation */
 /* eslint-disable no-loop-func */
 const fetch = require('node-fetch');
@@ -62,21 +64,35 @@ const findTotalWealth = () => {
   return users.reduce((accumulator, user) => accumulator + user.wealth, 0);
 };
 
-const returnPrintData = (users = 0, type = 'User') => {
-  if (type === 'Total Wealth') {
-    return `<-------${type}:-------->:${users}`;
-  }
+const returnPrintData = (users = 0, templateType = 'User') => {
   const stringTemplateEnd = '<-------------------------END----------------------------->';
-  const stringTemplateStart = `<------------------${type} Details: START----------------->\n`;
-  if (users === 0) {
-    // eslint-disable-next-line no-param-reassign
-    users = userOps.getUsers();
+  const stringTemplateStart = `<------------------${templateType} Details: START----------------->\n`;
+  switch (users) {
+    case 0:
+      users = userOps.getUsers();
+      break;
+    case 1:
+      users = doubleMoney();
+      break;
+    case 2:
+      users = returnMillionares();
+      break;
+    case 3:
+      users = sortByRichest();
+      break;
+    case 4:
+      users = findTotalWealth();
+      break;
+  }
+  if (templateType === 'Total Wealth') {
+    console.log(`<-------${templateType}:-------->:${users}`);
+    return;
   }
   let requiredData = '';
   users.forEach((user) => {
     requiredData += `Name: ${user.name.title} ${user.name.first} ${user.name.last}\tWealth: ${user.wealth}\n`;
   });
-  return `${stringTemplateStart}\n${requiredData}\n${stringTemplateEnd}`;
+  console.log(`${stringTemplateStart}\n${requiredData}\n${stringTemplateEnd}`);
 };
 
 module.exports = {
