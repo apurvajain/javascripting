@@ -3,8 +3,8 @@ const { LocalStorage } = require('node-localstorage');
 
 const localStorage = new LocalStorage('./UserWealthStorage');
 
-const MAX_MONEY = 1000000000;
-const MIN_MONEY = 1000000;
+const MAX_MONEY = 1000000;
+const MIN_MONEY = 10;
 
 function getMoney() {
   // Math.random() returns a random number between 0 (inclusive),  and 1 (exclusive):
@@ -29,17 +29,19 @@ async function fetchThreeUsers() {
   return users;
 }
 
-function displayAllUsers() {
-  const users = JSON.parse(localStorage.getItem('profile'));
-  console.log('<--------Users : START-------->');
+function displayAllUsers(users, context) {
+  console.log(`<--------${context} : START-------->`);
   users.forEach((user) => {
     console.log(`name = ${user.name}  money = ${user.money}`);
   });
-  console.log('<--------Users : END-------->');
+  console.log(`<--------${context} : END-------->`);
 }
 
 function setProfile(users) {
   localStorage.setItem('profile', JSON.stringify(users));
+}
+function getProfile() {
+  return JSON.parse(localStorage.getItem('profile'));
 }
 
 module.exports = {
@@ -50,4 +52,5 @@ module.exports = {
   displayAllUsers,
   fetchThreeUsers,
   setProfile,
+  getProfile,
 };
