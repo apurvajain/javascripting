@@ -50,9 +50,16 @@ test(' showMillionares should list all millionares', async () => {
   expect(consoleSpy).not.toHaveBeenCalledWith(`name = ${users[0].name}  money = ${users[0].money}`);
 });
 
-test(' sortByRichest should sort user accordng to money in descending order', async () => {
+test(' sortByRichest() should sort user accordng to money in descending order', async () => {
   const users = [{ name: 'rahul', money: 10000 }, { name: 'anu', money: 2000000 }, { name: 'priya', money: 500000 }];
   utils.setProfile(users);
   const sortedUsers = index.sortByRichest();
   expect(sortedUsers).toEqual([{ name: 'anu', money: 2000000 }, { name: 'priya', money: 500000 }, { name: 'rahul', money: 10000 }]);
+});
+
+test(' totalWealth() should return sum of all wealth of all users', async () => {
+  const users = [{ name: 'rahul', money: 10000 }, { name: 'anu', money: 2000000 }, { name: 'priya', money: 500000 }];
+  utils.setProfile(users);
+  const totalMoney = index.totalWealth();
+  expect(totalMoney).toEqual(2510000);
 });

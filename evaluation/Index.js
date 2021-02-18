@@ -46,10 +46,17 @@ function showMillionares() {
 }
 
 function sortByRichest() {
-  const users = JSON.parse(localStorage.getItem('profile'));
+  const users = utils.getProfile();
   users.sort((a, b) => ((a.money > b.money) ? -1 : ((b.money > a.money) ? 1 : 0)));
   utils.displayAllUsers(users, 'Users(Sort By Money)');
   return users;
+}
+
+function totalWealth() {
+  const users = utils.getProfile();
+  const wealth = users.reduce((agg, evl) => agg + evl.money, 0);
+  console.log(`Total Wealth = ${wealth}`);
+  return wealth;
 }
 
 module.exports = {
@@ -58,4 +65,5 @@ module.exports = {
   doubleMoney,
   showMillionares,
   sortByRichest,
+  totalWealth,
 };
