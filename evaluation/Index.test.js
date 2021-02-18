@@ -1,86 +1,42 @@
-const fetch = require('node-fetch');
 const { LocalStorage } = require('node-localstorage');
+const fetch = require('node-fetch');
 
 const localStorage = new LocalStorage('./UserWealthStorage');
+const utils = require('./Utils');
 const index = require('./Index');
 
 const { Response } = jest.requireActual('node-fetch');
 
-jest.mock('node-fetch', () => jest.fn());
+jest.mock('node-fetch');
 
-test('fetch should be called one time and return user object with name and money  ', async () => {
-  const firstname = 'Apoorva'; const
-    lastname = 'Choudhary';
-  const user = JSON.stringify({ results: [{ name: { first: firstname, last: lastname } }] });
-  fetch.mockReturnValue(Promise.resolve(new Response(user)));
-  const userDetails = await index.fetchUser();
-  expect(fetch).toHaveBeenCalledTimes(1);
-  expect(fetch).toHaveBeenCalledWith('https://randomuser.me/api');
-  expect(userDetails.name).toBe(`${firstname}  ${lastname}`);
-  fetch.mockClear();
+test(" fetchAndDisplayAllUsers() should store three users in local storage under key 'profile'  ", async () => {
+  const mockUsers = [{ name: 'appy', money: 12345678 }, { name: 'shubham', money: 34567812 }, { name: 'priya', money: 67812345 }];
+  const fetchThreeUsersSpy = jest.spyOn(utils, 'fetchThreeUsers');
+  fetchThreeUsersSpy.mockImplementation(() => Promise.resolve(mockUsers));
+  await index.fetchAndDisplayAllUsers();
+  expect(JSON.parse(localStorage.getItem('profile'))).toEqual(mockUsers);
+  localStorage.clear();
+  fetchThreeUsersSpy.mockClear();
 });
 
-test(' money function should return a number ', () => {
-  expect(typeof index.getMoney()).toBe('number');
-});
-
-test(' money function should return a number greater than MIN_MONEY and less than MAX_MONEY', () => {
-  expect(index.getMoney()).toBeGreaterThan(index.MIN_MONEY - 1);
-  expect(index.getMoney()).toBeLessThan(index.MAX_MONEY);
-});
-
-test('fetchAndDisplayAllUsers function call fetch api 3 times  ', async () => {
+test("addUser() should add 1 user to localstorage key 'profile'  ", async () => {
   localStorage.clear();
   const firstname = 'Apoorva'; const lastname = 'Choudhary';
   const user = JSON.stringify({ results: [{ name: { first: firstname, last: lastname } }] });
-  fetch.mockReturnValueOnce(Promise.resolve(new Response(user)))
-    .mockReturnValueOnce(Promise.resolve(new Response(user)))
-    .mockReturnValueOnce(Promise.resolve(new Response(user)));
-  await index.fetchAndDisplayAllUsers();
-  expect(fetch).toHaveBeenCalledTimes(3);
-  expect(fetch).toHaveBeenCalledWith('https://randomuser.me/api');
-  fetch.mockClear();
-});
-
-test("fetchAndDisplayAllUsers function stores three users in local storage key 'profile'  ", async () => {
-  localStorage.clear();
-  const firstname = 'Apoorva'; const lastname = 'Choudhary';
-  const user = JSON.stringify({ results: [{ name: { first: firstname, last: lastname } }] });
-  fetch.mockResolvedValueOnce(new Response(user))
-    .mockReturnValueOnce(Promise.resolve(new Response(user)))
-    .mockReturnValueOnce(Promise.resolve(new Response(user)));
-  await index.fetchAndDisplayAllUsers();
-
-  expect(JSON.parse(localStorage.getItem('profile')).length).toBe(3);
-  fetch.mockClear();
-});
-
-test("addUser function should add  1 user  to localstorage key 'profile'  ", async () => {
-  localStorage.clear();
-  const firstname = 'Apoorva'; const lastname = 'Choudhary';
-  const user = JSON.stringify({ results: [{ name: { first: firstname, last: lastname } }] });
-  fetch.mockReturnValueOnce(Promise.resolve(new Response(user)))
-    .mockReturnValueOnce(Promise.resolve(new Response(user)))
-    .mockReturnValueOnce(Promise.resolve(new Response(user)))
-    .mockReturnValueOnce(Promise.resolve(new Response(user)));
-  await index.fetchAndDisplayAllUsers();
+  fetch.mockReturnValueOnce(Promise.resolve(new Response(user)));
   await index.addUser();
-  expect(JSON.parse(localStorage.getItem('profile')).length).toBe(4);
+  const requestedUser = JSON.parse(localStorage.getItem('profile'));
+  expect(requestedUser.length).toBe(1);
+  expect(requestedUser[0].name).toEqual(`${firstname} ${lastname}`);
   fetch.mockClear();
 });
 
-test(' should double money', async () => {
-  localStorage.clear();
-  const firstname = 'Apoorva'; const lastname = 'Choudhary';
-  const user = JSON.stringify({ results: [{ name: { first: firstname, last: lastname } }] });
-  fetch.mockReturnValueOnce(Promise.resolve(new Response(user)))
-    .mockReturnValueOnce(Promise.resolve(new Response(user)))
-    .mockReturnValueOnce(Promise.resolve(new Response(user)));
-  await index.fetchAndDisplayAllUsers();
-  const users = JSON.parse(localStorage.getItem('profile'));
+test('doubleMoney() should double money', async () => {
+  const users = [{ name: 'Appy', money: 20000000 }, { name: 'shubh', money: 200000 }];
+  utils.setProfile(users);
   index.doubleMoney();
   const updatedUsers = JSON.parse(localStorage.getItem('profile'));
-  users.forEach((user, idx) => {
-    expect(user.money * 2).toBe(updatedUsers[idx].money);
+  updatedUsers.forEach((user, idx) => {
+    expect(user.money).toBe(users[idx].money * 2);
   });
 });
