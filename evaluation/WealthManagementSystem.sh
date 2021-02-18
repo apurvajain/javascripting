@@ -4,7 +4,9 @@ node -e 'require("./operations/Operations.js").fetchUsers(3)'
 node -e 'require("./operations/Operations.js").returnPrintData()'
 
 
-
+option=$1
+while :
+do
 echo 'Please select option\n1. Add user and print new user list
 2. Double money of all users and print updated user list
 3. Show only millionares
@@ -12,7 +14,7 @@ echo 'Please select option\n1. Add user and print new user list
 5. Calculate total wealth of all users and print it
 6. Exit'
 read option
-  case "$option" in
+  case $option in
    "1") node -e 'require("./operations/Operations.js").fetchUsers(1)'
         node -e 'require("./operations/Operations.js").returnPrintData()'
    ;;
@@ -26,6 +28,10 @@ read option
    ;;
    "6") node -e 'require("./users/Users.js").clearLocalStorage()'
    ;;
-esac
+   esac
+   if [[ "$option" == '6' ]]; then
+    break
+   fi
+done
 
 
