@@ -15,5 +15,7 @@ do
         3) node -e 'require("./Index").showMillionares()';;
         4) node -e 'require("./Index").sortByRichest()';;
         5) node -e 'require("./Index").totalWealth()';;
+        6) node -e 'require("./Index").clearLocalStorage()'
+           exit 0;;
     esac
 done 

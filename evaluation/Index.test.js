@@ -63,3 +63,9 @@ test(' totalWealth() should return sum of all wealth of all users', async () => 
   const totalMoney = index.totalWealth();
   expect(totalMoney).toEqual(2510000);
 });
+
+test(' clearLocalStorage() should return null with getItem', async () => {
+  index.clearLocalStorage();
+  const users = utils.getProfile();
+  expect(users).toEqual(null);
+});

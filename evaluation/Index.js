@@ -59,6 +59,10 @@ function totalWealth() {
   return wealth;
 }
 
+function clearLocalStorage() {
+  localStorage.clear();
+}
+
 module.exports = {
   fetchAndDisplayAllUsers,
   addUser,
@@ -66,4 +70,5 @@ module.exports = {
   showMillionares,
   sortByRichest,
   totalWealth,
+  clearLocalStorage,
 };
