@@ -77,5 +77,5 @@ function clearLocal() {
 }
 // clearLocal()
 module.exports = {
-  fetchUser, addAndDisplay, doubleWealth, showMillionaires, sortByRichest, totalWealth, clearLocal,
+  fetchUser,users, addAndDisplay, doubleWealth, showMillionaires, sortByRichest, totalWealth, clearLocal,
 };
